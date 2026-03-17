@@ -243,3 +243,11 @@
 198. The Dark Pictures: Man of Medan
 199. The Dark Pictures: Little Hope
 200. The Dark Pictures: House of Ashes
+
+
+
+#### ПРОТОТИП GUI
+![IMG_20260317_153329_245](https://github.com/user-attachments/assets/2a322af6-44f9-4c77-825e-6ebb06eb7091)
+![IMG_20260317_153329_966](https://github.com/user-attachments/assets/4016d5e4-1ca6-4ebc-a4c4-e3425b2bab88)
+![IMG_20260317_153329_435](https://github.com/user-attachments/assets/7a7b6216-4d46-4435-8866-ddc3c0f94098)
+
