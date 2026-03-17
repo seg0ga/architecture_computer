@@ -1,12 +1,12 @@
 # Запись №1
 ### 13.03.2026 Демин С. - Начата работа над базой данных
 #### Структура БД
-|id|title|developer|publisher|release_date|metacritic_score|genre|platform|cover|game_modes|engine|russian_language|age_rating|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 1 | Phasmophobia | Kinetic Games | Kinetic Games | 2020-09-18 | 79 | Хоррор, Симулятор | PC ||Одиночная, Мультиплеер, Кооператив |Unity|✅|12|
-| 2 | Cyberpunk 2077 | CD Projekt Red | CD Projekt | 2020-12-10 | 86 | RPG, Open World | PC, PS5, Xbox ||Одиночная |REDengine 4|✅|18|
+|id|title|developer|publisher|release_date|metacritic_score|genre|platform|cover|game_modes|engine|russian_language|age_rating|system_requirements|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | Phasmophobia | Kinetic Games | Kinetic Games | 2020-09-18 | 79 | Хоррор, Симулятор | PC ||Одиночная, Мультиплеер, Кооператив |Unity|✅|12|-|
+| 2 | Cyberpunk 2077 | CD Projekt Red | CD Projekt | 2020-12-10 | 86 | RPG, Open World | PC, PS5, Xbox ||Одиночная |REDengine 4|✅|18|-|
 |...|...|...|...|...|...|...|...|...|...|
-| n | CS2 | Valve | Valve | 2023-09-27 | 83 | Шутер, Тактический | PC | | Мультиплеер |Source 2|✅|16|
+| n | CS2 | Valve | Valve | 2023-09-27 | 83 | Шутер, Тактический | PC | | Мультиплеер |Source 2|✅|16|-|
 
 #### Описание полей
 |Поле|Тип данных|Описание|Пример|
@@ -24,6 +24,7 @@
 |engine|VARCHAR(100)|Движок игры|Unity|
 |russian_language|BOOLEAN|Наличие русского языка|TRUE|
 |age_rating|INT|Возрастной рейтинг|16|
+|system requirements|TEXT|Системные требования|-|
 
 
 #### Сортировка
