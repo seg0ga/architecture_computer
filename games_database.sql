@@ -1,6 +1,4 @@
--- Games Database
--- Created: 2026-03-14
--- Structure based on README.md specification
+
 
 CREATE TABLE IF NOT EXISTS games (
     id INT PRIMARY KEY AUTO_INCREMENT,
