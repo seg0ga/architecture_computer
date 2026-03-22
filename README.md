@@ -1,3 +1,8 @@
+# Запуск приложения:
+1. Установить requirements.txt
+2. python run.py
+
+
 # Запись №2
 ### 22.03.2026 Демин С. - Начата работа над базой данных (разделение таблиц)
 #### Структура БД (таблица 1)
@@ -76,4 +81,9 @@
 ![IMG_20260317_153329_245](https://github.com/user-attachments/assets/2a322af6-44f9-4c77-825e-6ebb06eb7091)
 ![IMG_20260317_153329_966](https://github.com/user-attachments/assets/4016d5e4-1ca6-4ebc-a4c4-e3425b2bab88)
 ![IMG_20260317_153329_435](https://github.com/user-attachments/assets/7a7b6216-4d46-4435-8866-ddc3c0f94098)
-
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+![img_5.png](img_5.png)
