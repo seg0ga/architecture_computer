@@ -18,12 +18,10 @@ class OptimalSearchTree:
         self.weight_func = weight_func or (lambda x: 1)
         self.n = len(items)
 
-        # Сортируем элементы по ключу
         self.sorted_items = sorted(items, key=lambda x: key_func(x))
         self.keys = [key_func(item) for item in self.sorted_items]
         self.weights = [self.weight_func(item) for item in self.sorted_items]
 
-        # Матрицы для динамического программирования
         self.AW = np.zeros((self.n + 1, self.n + 1), dtype=int)
         self.AP = np.zeros((self.n + 1, self.n + 1), dtype=int)
         self.AR = np.zeros((self.n + 1, self.n + 1), dtype=int)
@@ -35,17 +33,14 @@ class OptimalSearchTree:
         if self.n == 0:
             return
 
-        # Шаг 1: Вычисление матрицы весов AW
         for i in range(self.n + 1):
             for j in range(i + 1, self.n + 1):
                 self.AW[i][j] = self.AW[i][j - 1] + self.weights[j - 1]
 
-        # Шаг 2: Инициализация для поддеревьев из одной вершины
         for i in range(self.n):
             self.AP[i][i + 1] = self.AW[i][i + 1]
             self.AR[i][i + 1] = i + 1
 
-        # Шаг 3: Вычисление для поддеревьев большей длины
         for h in range(2, self.n + 1):
             for i in range(0, self.n - h + 1):
                 j = i + h
@@ -67,7 +62,6 @@ class OptimalSearchTree:
                 self.AP[i][j] = self.AW[i][j] + min_val
                 self.AR[i][j] = best_k
 
-        # Шаг 4: Построение дерева
         self.root = self._build_subtree(0, self.n)
 
     def _build_subtree(self, left: int, right: int) -> Optional[TreeNode]:
@@ -158,18 +152,3 @@ class OptimalSearchTree:
 
         self._calc_statistics(node.left, depth + 1, stats)
         self._calc_statistics(node.right, depth + 1, stats)
-
-    def print_tree(self, node: Optional[TreeNode] = None, level: int = 0):
-        if node is None:
-            node = self.root
-            if node is None:
-                print("Дерево пусто")
-                return
-
-        if node.right:
-            self.print_tree(node.right, level + 1)
-
-        print('    ' * level + f"└── {node.key} (вес: {node.weight})")
-
-        if node.left:
-            self.print_tree(node.left, level + 1)

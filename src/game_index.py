@@ -1,5 +1,8 @@
 from typing import List, Dict, Any, Optional
-from src.optimal_tree import OptimalSearchTree
+try:
+    from src.optimal_tree import OptimalSearchTree
+except ImportError:
+    from optimal_tree import OptimalSearchTree
 
 
 class GameIndex:
@@ -70,8 +73,3 @@ class GameIndex:
         for name, tree in self.trees.items():
             stats[name] = tree.get_statistics()
         return stats
-
-    def print_tree(self, sort_type: str):
-        if sort_type in self.trees:
-            print(f"\n=== Дерево оптимального поиска ({sort_type}) ===")
-            self.trees[sort_type].print_tree()

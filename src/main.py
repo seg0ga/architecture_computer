@@ -35,7 +35,7 @@ def main():
     print(" " * 45 + "СИСТЕМА ОПТИМАЛЬНОГО ПОИСКА ИГР")
     print("=" * 140)
 
-    db = DatabaseManager('database/games.db')
+    db = DatabaseManager()
 
     if not db.connect():
         print("Не удалось подключиться к базе данных.")
@@ -68,7 +68,7 @@ def main():
         print("7. Поиск по названию")
         print("8. Поиск по издателю")
         print("9. Вывести статистику")
-        print("10. Показать структуру дерева (по названию)")
+        print("10. Добавить новую игру")
         print("0. Выход")
 
         choice = input("\nВыберите действие: ")
@@ -122,12 +122,40 @@ def main():
                 print(f"  • Суммарная взвешенная высота: {tree_stats['total_weighted_height']}")
                 print(f"  • Средневзвешенная высота: {tree_stats['avg_weighted_height']:.3f}")
         elif choice == '10':
-            print("\n=== СТРУКТУРА ДЕРЕВА ОПТИМАЛЬНОГО ПОИСКА (по названию) ===")
-            index.print_tree('title')
-            print("\nПримечание: числа в скобках - веса узлов (все веса = 1)")
-        elif choice == '0':
-            print("\nДо свидания!")
-            break
+            print("\n=== Добавление новой игры ===")
+            title = input("Название игры: ")
+            developer = input("Разработчик: ")
+            publisher = input("Издатель: ")
+            release_date = input("Дата выхода (ГГГГ-ММ-ДД): ")
+            try:
+                metacritic_score = int(input("Оценка Metacritic (0-100): "))
+                age_rating = int(input("Возрастной рейтинг: "))
+            except ValueError:
+                print("Ошибка: числовые значения введены неверно")
+                continue
+
+            genre = input("Жанр: ")
+            platform = input("Платформы: ")
+            game_modes = input("Режимы игры: ")
+            engine = input("Движок: ")
+            russian_lang = input("Есть русский язык (да/нет): ").lower() in ('да', 'yes', '1')
+
+            if db.add_game(
+                title=title,
+                developer=developer,
+                publisher=publisher,
+                release_date=release_date,
+                metacritic_score=metacritic_score,
+                genre=genre,
+                platform=platform,
+                game_modes=game_modes,
+                engine=engine,
+                russian_language=russian_lang,
+                age_rating=age_rating
+            ):
+                games = db.get_all_games()
+                index = GameIndex(games)
+                print("✓ Игра добавлена и индексы обновлены")
         else:
             print("Неверный выбор. Попробуйте снова.")
 
