@@ -1,89 +1,205 @@
-# Запуск приложения:
-1. Установить requirements.txt
-2. python run.py
+# 🎮 Game Library
 
+**Игровая библиотека** — приложение для поиска, сортировки и управления коллекцией игр
 
-# Запись №2
-### 22.03.2026 Демин С. - Начата работа над базой данных (разделение таблиц)
-#### Структура БД (таблица 1)
-|id|title|developer|publisher|release_date|metacritic_score|genre|platform|game_modes|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 1 | Phasmophobia | Kinetic Games | Kinetic Games | 2020-09-18 | 79 | Хоррор, Симулятор | PC |Одиночная, Мультиплеер, Кооператив |
-| 2 | Cyberpunk 2077 | CD Projekt Red | CD Projekt | 2020-12-10 | 86 | RPG, Open World | PC, PS5, Xbox |Одиночная |REDengine 4|✅|18|-|
-|...|...|...|...|...|...|...|...|...|...|
-| n | CS2 | Valve | Valve | 2023-09-27 | 83 | Шутер, Тактический | PC  | Мультиплеер |Source 2|✅|16|-|
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Python](https://img.shields.io/badge/python-3.8+-green)
+![PostgreSQL](https://img.shields.io/badge/postgresql-12+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
+---
 
-#### Структура БД (таблица 2)
-|id|engine|russian_language|age_rating|system_requirements|
-|:-:|:-:|:-:|:-:|:-:|
-|1|Unity|✅|12|-|
-|2|REDengine 4|✅|18|-|
-|...|...|...|...|...|
-|n|Source 2|✅|16|-|
+## 📥 Установка
 
+### Windows
 
-#### Описание полей
-|Поле|Тип данных|Описание|Пример|
-|:-:|:-:|:-:|:-:|
-|id|INT|Уникальный идентификатор игры. Самогенерится|1|
-|title|VARCHAR(100)|Название игры|Phasmophobia|
-|developer|VARCHAR(100)|Разработчик|Kinetic Games|
-|publisher|VARCHAR(100)|Издатель|Kinetic Games|
-|release_date|DATE|Дата выхода игры|2020-09-18|
-|metacritic_score|INT|Оценка на Metacritic|79|
-|genre|VARCHAR(100)|Жанр игры|Хоррор|
-|platform|VARCHAR(255)|Платформа|PC, XBOX|
-|cover|VARCHAR(100)|Ссылка на обложку||
-|game_modes|VARCHAR(100)|Режимы игры|Кооператив|
-|engine|VARCHAR(100)|Движок игры|Unity|
-|russian_language|BOOLEAN|Наличие русского языка|TRUE|
-|age_rating|INT|Возрастной рейтинг|16|
-|system requirements|TEXT|Системные требования|-|
+**Вариант 1: Готовый установщик**
+```
+1. Скачайте GameLibrary_Setup.exe
+2. Запустите и следуйте инструкциям
+3. Ярлык появится на рабочем столе
+```
 
+**Вариант 2: Вручную**
+```bash
+# 1. Установите Python 3.8+ и PostgreSQL
+# 2. Запустите установщик
+python setup.py
 
-#### Сортировка через построение дерева
-Сортрировка **должна** осуществляться по 5 полям:
-1. По названию
-2. По издателю+названию
-3. По дате выхода+названию
-4. По оценке не метакритике+названию
-5. По возрастным ограничениям+названию
+# 3. Запустите приложение
+run.bat
+```
 
+### Linux
 
+```bash
+# 1. Установка зависимостей
+sudo apt install python3 python3-venv python3-tk postgresql
 
-# Список игр в базе данных (200 игр)
+# 2. Запуск установщика
+python3 setup.py
 
-1. Phasmophobia
-2. Cyberpunk 2077
-3. CS2
-4. Portal
-5. Half-Life
-6. The Witcher 3: Wild Hunt
-7. Red Dead Redemption 2
-8. The Last of Us Part II
-9. God of War
-10. Elden Ring
-11. Minecraft
-12. Grand Theft Auto V
-13. Skyrim
-14. Dark Souls III
-15. Bloodborne
-16. Sekiro: Shadows Die Twice
-17. Monster Hunter: World
-18. Resident Evil Village
-19. Resident Evil 2
-20. Devil May Cry 5
+# 3. Запуск приложения
+./run.sh
+```
 
+📖 **Подробная инструкция:** см. [INSTALL.md](INSTALL.md)
 
+---
 
-#### ПРОТОТИП GUI
-![IMG_20260317_153329_245](https://github.com/user-attachments/assets/2a322af6-44f9-4c77-825e-6ebb06eb7091)
-![IMG_20260317_153329_966](https://github.com/user-attachments/assets/4016d5e4-1ca6-4ebc-a4c4-e3425b2bab88)
-![IMG_20260317_153329_435](https://github.com/user-attachments/assets/7a7b6216-4d46-4435-8866-ddc3c0f94098)
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
+## ✨ Возможности
+
+- 📋 **Просмотр игр** — база из 200+ игр
+- 🔍 **Поиск** — по названию и издателю
+- 🔄 **Сортировка** — 5 вариантов (название, издатель, дата, рейтинг, возраст)
+- 📊 **Статистика** — информация о деревьях поиска
+- ➕ **Добавление** — добавляйте новые игры
+- 🖼️ **Картинки** — обложки из Steam API
+- 🌙 **Тёмная тема** — профессиональный дизайн
+
+---
+
+## 📸 Скриншоты
+
+![Главный экран](img.png)
+![Поиск](img_1.png)
+![Добавление](img_2.png)
+![Статистика](img_3.png)
+
+---
+
+## 🗄️ Структура базы данных
+
+### Таблица: games
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| id | INT | Уникальный идентификатор |
+| title | VARCHAR(100) | Название игры |
+| developer | VARCHAR(100) | Разработчик |
+| publisher | VARCHAR(100) | Издатель |
+| release_date | DATE | Дата выхода |
+| metacritic_score | INT | Оценка на Metacritic |
+| genre | VARCHAR(100) | Жанр |
+| platform | VARCHAR(255) | Платформы |
+| game_modes | VARCHAR(100) | Режимы игры |
+| engine | VARCHAR(100) | Движок |
+| russian_language | BOOLEAN | Русский язык |
+| age_rating | INT | Возрастной рейтинг |
+
+---
+
+## 🚀 Быстрый старт
+
+```bash
+# Клонирование репозитория
+git clone <repository-url>
+cd architecture_computer
+
+# Установка
+python setup.py
+
+# Запуск
+# Windows: run.bat
+# Linux: ./run.sh
+```
+
+---
+
+## 📋 Требования
+
+| Компонент | Версия |
+|-----------|--------|
+| Python | 3.8+ |
+| PostgreSQL | 12+ |
+| RAM | 2 GB |
+| Место на диске | 500 MB |
+
+---
+
+## 🛠️ Разработка
+
+```bash
+# Создание виртуального окружения
+python -m venv venv
+
+# Активация
+# Windows: venv\Scripts\activate
+# Linux: source venv/bin/activate
+
+# Установка зависимостей
+pip install -r requirements.txt
+
+# Запуск
+python src/main.py
+```
+
+---
+
+## 📁 Структура проекта
+
+```
+architecture_computer/
+├── src/
+│   ├── main.py           # Основное приложение
+│   ├── db_manager.py     # Работа с БД
+│   ├── game_index.py     # Индексы и поиск
+│   └── optimal_tree.py   # Оптимальные деревья
+├── database/             # SQL скрипты
+├── requirements.txt      # Зависимости Python
+├── setup.py             # Установщик
+├── run.bat / run.sh     # Скрипты запуска
+└── README.md            # Документация
+```
+
+---
+
+## 📚 Документация
+
+- [INSTALL.md](INSTALL.md) — подробная установка
+- [BUILD.md](BUILD.md) — сборка установщика
+- [Дизайн-документ.DOCX](Дизайн-документ.DOCX) — дизайн-документ
+
+---
+
+## 👥 Авторы
+
+- **Демин С.** — Разработка БД и структуры
+- **Сергиенко А.** — Разработка приложения
+
+---
+
+## 📝 История версий
+
+### 1.0.0 (2026)
+- ✨ Начальный релиз
+- 🎨 Профессиональный UI
+- 📦 Установщик
+- 🔍 Поиск и сортировка
+- 📊 Статистика деревьев
+
+---
+
+## 📄 Лицензия
+
+MIT License — см. [LICENSE](LICENSE) файл
+
+---
+
+## 🆘 Поддержка
+
+При возникновении проблем:
+1. Проверьте [INSTALL.md](INSTALL.md)
+2. Убедитесь, что PostgreSQL запущен
+3. Проверьте логи приложения
+
+**Email:** support@example.com  
+**Issues:** https://github.com/username/repo/issues
+
+---
+
+<div align="center">
+
+**Game Library** © 2026
+
+</div>
