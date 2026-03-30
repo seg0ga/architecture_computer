@@ -10,7 +10,7 @@ class DatabaseManager:
         self.db_config = {
             'dbname': database or 'games_db',
             'user': user or 'postgres',
-            'password': password or 'postgres',
+            'password': password or '1234',
             'host': host or 'localhost',
             'port': port or '5432'
         }
@@ -36,8 +36,11 @@ class DatabaseManager:
             count = self.cursor.fetchone()['count']
             if count > 0:
                 print(f"В базе {count} игр")
+                # Проверяем наличие колонки executable_path и добавляем если нет
+                self._add_executable_path_column_if_missing()
                 return True
-        except:
+        except Exception as e:
+            print(f"Ошибка проверки базы: {e}")
             self.connection.rollback()
 
         try:
@@ -61,6 +64,22 @@ class DatabaseManager:
             self.connection.rollback()
             return False
 
+    def _add_executable_path_column_if_missing(self):
+        """Добавляет колонку executable_path если она отсутствует"""
+        try:
+            self.cursor.execute("""
+                SELECT column_name FROM information_schema.columns 
+                WHERE table_name = 'games' AND column_name = 'executable_path'
+            """)
+            result = self.cursor.fetchone()
+            if not result:
+                self.cursor.execute("ALTER TABLE games ADD COLUMN executable_path VARCHAR(500)")
+                self.connection.commit()
+                print("Добавлена колонка executable_path")
+        except Exception as e:
+            print(f"Ошибка добавления колонки: {e}")
+            self.connection.rollback()
+
     def get_all_games(self) -> List[Dict[str, Any]]:
         try:
             self.cursor.execute('SELECT * FROM games ORDER BY id')
@@ -80,10 +99,10 @@ class DatabaseManager:
                                    engine, russian_language, age_rating)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 RETURNING id
-            ''', (title, developer, publisher, release_date, 
+            ''', (title, developer, publisher, release_date,
                   metacritic_score, genre, platform, game_modes,
                   engine, russian_language, age_rating))
-            
+
             game_id = self.cursor.fetchone()[0]
             self.connection.commit()
             print(f"Добавлена игра: {title} (ID={game_id})")
@@ -93,3 +112,28 @@ class DatabaseManager:
             print(error_msg)
             self.connection.rollback()
             return (False, error_msg)
+
+    def update_executable_path(self, game_id: int, executable_path: Optional[str]) -> tuple:
+        """Обновить путь к исполняемому файлу игры. Возвращает (True, None) или (False, ошибка)"""
+        try:
+            self.cursor.execute('''
+                UPDATE games SET executable_path = %s WHERE id = %s
+            ''', (executable_path, game_id))
+            self.connection.commit()
+            print(f"Обновлен путь для игры ID={game_id}: {executable_path}")
+            return (True, None)
+        except Exception as e:
+            error_msg = f"Ошибка при обновлении пути: {str(e)}"
+            print(error_msg)
+            self.connection.rollback()
+            return (False, error_msg)
+
+    def get_game_by_id(self, game_id: int) -> Optional[Dict[str, Any]]:
+        """Получить игру по ID"""
+        try:
+            self.cursor.execute('SELECT * FROM games WHERE id = %s', (game_id,))
+            result = self.cursor.fetchone()
+            return dict(result) if result else None
+        except Exception as e:
+            print(f"Ошибка: {e}")
+            return None

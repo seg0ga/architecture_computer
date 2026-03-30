@@ -1,7 +1,8 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext
+from tkinter import ttk, messagebox, scrolledtext, filedialog
 import sys
 import os
+import subprocess
 import urllib.request
 import io
 import json
@@ -324,6 +325,47 @@ class GameApp:
                            pady=4)
             label.pack(fill=tk.X, pady=3)
             self.game_info[field] = (label, lbl_text)
+
+        # Кнопки управления игрой
+        button_frame = tk.Frame(self.info_frame, bg=self.colors['bg_primary'])
+        button_frame.pack(fill=tk.X, pady=(15, 10))
+
+        # Кнопка выбора исполняемого файла
+        self.select_exe_btn = tk.Button(button_frame, text="ВЫБРАТЬ ФАЙЛ ИГРЫ",
+                                       font=('Segoe UI', 10, 'bold'),
+                                       bg=self.colors['bg_input'],
+                                       fg=self.colors['text_primary'],
+                                       activebackground=self.colors['accent'],
+                                       activeforeground='#ffffff',
+                                       relief=tk.FLAT,
+                                       padx=20, pady=10,
+                                       cursor='hand2',
+                                       borderwidth=0,
+                                       command=self.select_executable)
+        self.select_exe_btn.pack(fill=tk.X, pady=(0, 10))
+
+        # Кнопка запуска игры
+        self.launch_btn = tk.Button(button_frame, text="ЗАПУСТИТЬ ИГРУ",
+                                   font=('Segoe UI', 10, 'bold'),
+                                   bg=self.colors['success'],
+                                   fg='#ffffff',
+                                   activebackground='#059669',
+                                   activeforeground='#ffffff',
+                                   relief=tk.FLAT,
+                                   padx=20, pady=10,
+                                   cursor='hand2',
+                                   borderwidth=0,
+                                   command=self.launch_game)
+        self.launch_btn.pack(fill=tk.X)
+
+        # Метка пути к исполняемому файлу
+        self.exe_path_label = tk.Label(self.info_frame, text="",
+                                       font=('Segoe UI', 8),
+                                       bg=self.colors['bg_primary'],
+                                       fg=self.colors['text_muted'],
+                                       wraplength=460,
+                                       anchor=tk.W)
+        self.exe_path_label.pack(fill=tk.X, pady=(5, 10))
 
         self.details_frame = details_frame
 
@@ -771,6 +813,13 @@ class GameApp:
         label, lbl_text = self.game_info['game_modes']
         label.config(text=f"{lbl_text}: {game['game_modes'] if game['game_modes'] else 'Не указано'}")
 
+        # Путь к исполняемому файлу
+        executable_path = game.get('executable_path')
+        if executable_path:
+            self.exe_path_label.config(text=f"Путь: {executable_path}")
+        else:
+            self.exe_path_label.config(text="Путь не указан")
+
         # Обновляем canvas
         self.info_frame.update_idletasks()
         self.info_canvas.configure(scrollregion=self.info_canvas.bbox("all"))
@@ -779,6 +828,111 @@ class GameApp:
         self.image_label.config(image='')
         self.loading_label.config(text="Загрузка...")
         threading.Thread(target=self.load_and_show_image, args=(game['title'],), daemon=True).start()
+
+    def select_executable(self):
+        """Выбор исполняемого файла игры"""
+        if not self.selected_game:
+            messagebox.showinfo("Инфо", "Сначала выберите игру")
+            return
+
+        filepath = filedialog.askopenfilename(
+            title="Выберите исполняемый файл игры",
+            filetypes=[
+                ("Executable files", "*.exe"),
+                ("Windows shortcuts", "*.url"),
+                ("All files", "*.*")
+            ]
+        )
+
+        if filepath:
+            # Для .url файлов читаем содержимое и извлекаем путь
+            if filepath.lower().endswith('.url'):
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    # Ищем строку URL= в .url файле
+                    for line in content.split('\n'):
+                        if line.strip().startswith('URL='):
+                            filepath = line.strip()[4:].strip('"').strip("'")
+                            break
+                except Exception as e:
+                    messagebox.showerror("Ошибка", f"Не удалось прочитать .url файл: {e}")
+                    return
+
+            success, error = self.db.update_executable_path(self.selected_game['id'], filepath)
+            if success:
+                self.selected_game['executable_path'] = filepath
+                self.exe_path_label.config(text=f"Путь: {filepath}")
+                messagebox.showinfo("Успешно", f"Путь сохранён для игры \"{self.selected_game['title']}\"")
+            else:
+                messagebox.showerror("Ошибка", f"Не удалось сохранить путь: {error}")
+
+    def launch_game(self):
+        """Запуск выбранной игры"""
+        if not self.selected_game:
+            messagebox.showinfo("Инфо", "Сначала выберите игру")
+            return
+
+        executable_path = self.selected_game.get('executable_path')
+
+        if not executable_path:
+            messagebox.showinfo("Инфо", f"Путь к исполняемому файлу для игры \"{self.selected_game['title']}\" не указан.\n\nНажмите кнопку \"ВЫБРАТЬ ФАЙЛ ИГРЫ\" чтобы указать путь.")
+            return
+
+        # Проверяем, является ли путь protocol link (steam://, epic://, etc.)
+        if '://' in executable_path:
+            # Это protocol link - пробуем несколько способов открытия
+            try:
+                # Пробуем xdg-open
+                subprocess.Popen(['xdg-open', executable_path], 
+                                stdout=subprocess.DEVNULL, 
+                                stderr=subprocess.DEVNULL)
+                messagebox.showinfo("Запуск", f"Игра \"{self.selected_game['title']}\" запускается через {executable_path.split('://')[0].title()}...\n\nЕсли не запустилось, убедитесь, что клиент Steam установлен и запущен.")
+            except FileNotFoundError:
+                # xdg-open не найден, пробуем через браузер
+                try:
+                    import webbrowser
+                    webbrowser.open(executable_path)
+                    messagebox.showinfo("Запуск", f"Игра \"{self.selected_game['title']}\" запускается через браузер...")
+                except Exception as e:
+                    messagebox.showerror("Ошибка запуска", 
+                        f"Не удалось открыть protocol link {executable_path}\n\n"
+                        f"Для Steam игр:\n"
+                        f"1. Убедитесь, что Steam установлен и запущен\n"
+                        f"2. В Windows: ярлык должен работать автоматически\n"
+                        f"3. Попробуйте вручную вставить ссылку в браузер")
+            except Exception as e:
+                messagebox.showerror("Ошибка запуска", f"Не удалось открыть protocol link:\n{str(e)}")
+            return
+
+        # Проверяем, существует ли файл
+        if not os.path.exists(executable_path):
+            # Пробуем конвертировать путь WSL <-> Windows
+            if executable_path.startswith('/mnt/'):
+                # Конвертируем WSL путь в Windows
+                win_path = executable_path.replace('/mnt/', '').replace('/', '\\')
+                drive_letter = win_path[0].upper()
+                win_path = drive_letter + ':' + win_path[1:]
+                if os.path.exists(win_path):
+                    executable_path = win_path
+                else:
+                    messagebox.showerror("Ошибка", f"Файл не найден:\n{executable_path}\n\nПопробуйте выбрать файл заново.")
+                    return
+            else:
+                messagebox.showerror("Ошибка", f"Файл не найден:\n{executable_path}\n\nПопробуйте выбрать файл заново.")
+                return
+
+        try:
+            # Для .exe используем wine, для остального - напрямую
+            if executable_path.lower().endswith('.exe'):
+                subprocess.Popen(['wine', executable_path])
+            else:
+                subprocess.Popen([executable_path])
+            messagebox.showinfo("Запуск", f"Игра \"{self.selected_game['title']}\" запущена!")
+        except FileNotFoundError as e:
+            messagebox.showerror("Ошибка запуска", f"Команда не найдена. Убедитесь, что wine установлен:\n{str(e)}")
+        except Exception as e:
+            messagebox.showerror("Ошибка запуска", f"Не удалось запустить игру:\n{str(e)}")
 
     def show_sorted_list(self, sort_type):
         self.status.config(text=f"Сортировка: {sort_type}...")
