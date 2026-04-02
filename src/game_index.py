@@ -13,27 +13,30 @@ def digital_sort_by_title(games):
     # Находим максимальную длину строки
     max_len = 0
     for game in arr:
-        title_len = len(game['title'])
+        title_len = len(game['title']) if game['title'] else 0
         if title_len > max_len:
             max_len = title_len
 
     # Сортировка по разрядам (от младшего к старшему)
     for pos in range(max_len - 1, -1, -1):
-        # Создаем корзины (ASCII символы)
-        buckets = [[] for _ in range(256)]
+        # Используем словарь вместо списка для поддержки любых Unicode символов
+        buckets = {}
 
         for game in arr:
-            title = game['title']
+            title = game['title'] if game['title'] else ''
             if pos < len(title):
                 char_code = ord(title[pos])
             else:
                 char_code = 0  # Если строка короче, ставим в начало
+            
+            if char_code not in buckets:
+                buckets[char_code] = []
             buckets[char_code].append(game)
 
-        # Собираем обратно
+        # Собираем обратно по возрастанию кодов символов
         arr = []
-        for bucket in buckets:
-            arr.extend(bucket)
+        for char_code in sorted(buckets.keys()):
+            arr.extend(buckets[char_code])
 
     return arr
 
@@ -49,29 +52,29 @@ class GameIndex:
         self.sorted_by_title = digital_sort_by_title(self.games)
 
         # Остальные деревья оставляем как есть (упрощенные)
-        self.trees['publisher_title'] = OptimalSearchTree(
+        self.trees['publisher'] = OptimalSearchTree(
             self.games,
-            key_func=lambda x: (x['publisher'].lower(), x['title'].lower())
+            key_func=lambda x: (x['publisher'].lower() if x['publisher'] else '', x['title'].lower())
         )
-        self.trees['publisher_title'].build()
+        self.trees['publisher'].build()
 
-        self.trees['release_title'] = OptimalSearchTree(
+        self.trees['release_date'] = OptimalSearchTree(
             self.games,
-            key_func=lambda x: (x['release_date'], x['title'].lower())
+            key_func=lambda x: (str(x['release_date']) if x['release_date'] else '0001-01-01', x['title'].lower())
         )
-        self.trees['release_title'].build()
+        self.trees['release_date'].build()
 
-        self.trees['metacritic_title'] = OptimalSearchTree(
+        self.trees['metacritic_score'] = OptimalSearchTree(
             self.games,
-            key_func=lambda x: (-x['metacritic_score'], x['title'].lower())
+            key_func=lambda x: (-x['metacritic_score'] if x['metacritic_score'] else 0, x['title'].lower())
         )
-        self.trees['metacritic_title'].build()
+        self.trees['metacritic_score'].build()
 
-        self.trees['age_title'] = OptimalSearchTree(
+        self.trees['age_rating'] = OptimalSearchTree(
             self.games,
-            key_func=lambda x: (x['age_rating'], x['title'].lower())
+            key_func=lambda x: (x['age_rating'] if x['age_rating'] else 0, x['title'].lower())
         )
-        self.trees['age_title'].build()
+        self.trees['age_rating'].build()
 
     def get_sorted_by(self, sort_type: str) -> List[Dict[str, Any]]:
         if sort_type == 'title':
@@ -92,7 +95,8 @@ class GameIndex:
         """Поиск по издателю"""
         results = []
         for game in self.games:
-            if publisher.lower() in game['publisher'].lower():
+            game_publisher = game.get('publisher')
+            if game_publisher and publisher.lower() in game_publisher.lower():
                 results.append(game)
         return results
 

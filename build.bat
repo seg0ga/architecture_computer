@@ -32,6 +32,7 @@ xcopy /E /I database dist\database 2>nul
 copy requirements.txt dist\ 2>nul
 copy README.md dist\ 2>nul
 copy INSTALL.md dist\ 2>nul
+copy launcher.bat dist\ 2>nul
 
 echo.
 echo ╔════════════════════════════════════════╗
@@ -39,6 +40,11 @@ echo ║         СБОРКА ЗАВЕРШЕНА               ║
 echo ╚════════════════════════════════════════╝
 echo.
 echo Готовый файл: dist\Game Library.exe
+echo Лаунчер: dist\launcher.bat
+echo.
+echo Для запуска с автозапуском БД:
+echo   1. launcher.bat - запуск с автозапуском PostgreSQL
+echo   2. Game Library.exe - прямой запуск
 echo.
 echo Для создания установщика:
 echo   1. Установите Inno Setup

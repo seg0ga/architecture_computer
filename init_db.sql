@@ -267,3 +267,6 @@ CREATE INDEX IF NOT EXISTS idx_age_rating ON games(age_rating);
 
 -- Query example with all 5 sorting fields
 -- SELECT * FROM games ORDER BY title, publisher, release_date, metacritic_score, age_rating;
+
+-- Add image_url column for custom images
+ALTER TABLE games ADD COLUMN IF NOT EXISTS image_url VARCHAR(500);

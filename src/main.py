@@ -65,6 +65,7 @@ class GameApp:
         self.image_cache = ImageCache()
         self.selected_game = None
         self.current_image = None
+        self.sort_directions = {}  # Track sort direction for each column: True=asc, False=desc
 
         self._setup_styles()
         self._create_header()
@@ -173,17 +174,17 @@ class GameApp:
 
         sorts = [
             ("Название", 'title'),
-            ("Издатель", 'publisher_title'),
-            ("Дата", 'release_title'),
-            ("Рейтинг", 'metacritic_title'),
-            ("Возраст", 'age_title')
+            ("Издатель", 'publisher'),
+            ("Дата", 'release_date'),
+            ("Рейтинг", 'metacritic_score'),
+            ("Возраст", 'age_rating'),
         ]
 
         self.sort_buttons = {}
         for text, sort_type in sorts:
-            btn = tk.Button(sort_frame, text=text, 
+            btn = tk.Button(sort_frame, text=text + " ▲",
                            font=('Segoe UI', 9, 'bold'),
-                           bg=self.colors['bg_input'], 
+                           bg=self.colors['bg_input'],
                            fg=self.colors['text_primary'],
                            activebackground=self.colors['accent'],
                            activeforeground='#ffffff',
@@ -191,7 +192,7 @@ class GameApp:
                            padx=20, pady=10,
                            cursor='hand2',
                            borderwidth=0,
-                           command=lambda st=sort_type: self.show_sorted_list(st))
+                           command=lambda st=sort_type: self.toggle_sort(st))
             btn.pack(side=tk.LEFT, padx=6, pady=12)
             self.sort_buttons[sort_type] = btn
 
@@ -207,31 +208,34 @@ class GameApp:
         header_frame = tk.Frame(list_container, bg=self.colors['bg_input'], height=45)
         header_frame.pack(fill=tk.X)
         header_frame.pack_propagate(False)
-        
-        headers = [("НАЗВАНИЕ", 300), ("ИЗДАТЕЛЬ", 200), ("ДАТА", 120), ("РЕЙТИНГ", 90)]
+
+        headers = [("НАЗВАНИЕ", 280), ("РАЗРАБОТЧИК", 180), ("ИЗДАТЕЛЬ", 180), ("ДАТА", 110), ("РЕЙТИНГ", 80), ("ВОЗРАСТ", 70)]
         for text, width in headers:
-            tk.Label(header_frame, text=text, 
+            tk.Label(header_frame, text=text,
                     font=('Segoe UI', 9, 'bold'),
-                    bg=self.colors['bg_input'], 
+                    bg=self.colors['bg_input'],
                     fg=self.colors['text_muted'],
-                    anchor=tk.W).pack(side=tk.LEFT, padx=20, fill=tk.X)
+                    anchor=tk.W,
+                    padx=10).pack(side=tk.LEFT, fill=tk.X)
 
         tree_frame = tk.Frame(list_container, bg=self.colors['bg_card'])
         tree_frame.pack(fill=tk.BOTH, expand=True)
 
-        self.list_tree = ttk.Treeview(tree_frame, 
-                                      columns=('title', 'publisher', 'date', 'score'), 
+        self.list_tree = ttk.Treeview(tree_frame,
+                                      columns=('title', 'developer', 'publisher', 'date', 'score', 'age'),
                                       show='headings',
                                       height=20,
                                       selectmode='browse')
-        
-        for col in ['title', 'publisher', 'date', 'score']:
+
+        for col in ['title', 'developer', 'publisher', 'date', 'score', 'age']:
             self.list_tree.heading(col, text='')
-        
-        self.list_tree.column('title', width=300, minwidth=200)
-        self.list_tree.column('publisher', width=200, minwidth=100)
-        self.list_tree.column('date', width=120, minwidth=80)
-        self.list_tree.column('score', width=90, minwidth=50)
+
+        self.list_tree.column('title', width=280, minwidth=200)
+        self.list_tree.column('developer', width=180, minwidth=120)
+        self.list_tree.column('publisher', width=180, minwidth=120)
+        self.list_tree.column('date', width=110, minwidth=80)
+        self.list_tree.column('score', width=80, minwidth=50)
+        self.list_tree.column('age', width=70, minwidth=40)
 
         scroll_y = ttk.Scrollbar(tree_frame, orient=tk.VERTICAL, command=self.list_tree.yview)
         self.list_tree.configure(yscrollcommand=scroll_y.set)
@@ -330,6 +334,20 @@ class GameApp:
         button_frame = tk.Frame(self.info_frame, bg=self.colors['bg_primary'])
         button_frame.pack(fill=tk.X, pady=(15, 10))
 
+        # Кнопка редактирования изображения
+        self.edit_image_btn = tk.Button(button_frame, text="ИЗМЕНИТЬ ИЗОБРАЖЕНИЕ",
+                                       font=('Segoe UI', 10, 'bold'),
+                                       bg=self.colors['bg_input'],
+                                       fg=self.colors['text_primary'],
+                                       activebackground=self.colors['accent'],
+                                       activeforeground='#ffffff',
+                                       relief=tk.FLAT,
+                                       padx=20, pady=10,
+                                       cursor='hand2',
+                                       borderwidth=0,
+                                       command=self.edit_image_url)
+        self.edit_image_btn.pack(fill=tk.X, pady=(0, 10))
+
         # Кнопка выбора исполняемого файла
         self.select_exe_btn = tk.Button(button_frame, text="ВЫБРАТЬ ФАЙЛ ИГРЫ",
                                        font=('Segoe UI', 10, 'bold'),
@@ -356,7 +374,35 @@ class GameApp:
                                    cursor='hand2',
                                    borderwidth=0,
                                    command=self.launch_game)
-        self.launch_btn.pack(fill=tk.X)
+        self.launch_btn.pack(fill=tk.X, pady=(0, 10))
+
+        # Кнопка удаления игры
+        self.delete_btn = tk.Button(button_frame, text="УДАЛИТЬ ИГРУ",
+                                   font=('Segoe UI', 10, 'bold'),
+                                   bg=self.colors['danger'],
+                                   fg='#ffffff',
+                                   activebackground='#dc2626',
+                                   activeforeground='#ffffff',
+                                   relief=tk.FLAT,
+                                   padx=20, pady=10,
+                                   cursor='hand2',
+                                   borderwidth=0,
+                                   command=self.delete_game)
+        self.delete_btn.pack(fill=tk.X, pady=(0, 10))
+
+        # Кнопка системных требований
+        self.req_btn = tk.Button(button_frame, text="СИСТЕМНЫЕ ТРЕБОВАНИЯ",
+                                font=('Segoe UI', 10, 'bold'),
+                                bg=self.colors['bg_input'],
+                                fg=self.colors['text_primary'],
+                                activebackground=self.colors['accent'],
+                                activeforeground='#ffffff',
+                                relief=tk.FLAT,
+                                padx=20, pady=10,
+                                cursor='hand2',
+                                borderwidth=0,
+                                command=self.show_system_requirements)
+        self.req_btn.pack(fill=tk.X)
 
         # Метка пути к исполняемому файлу
         self.exe_path_label = tk.Label(self.info_frame, text="",
@@ -527,16 +573,16 @@ class GameApp:
         for label_text, key in fields:
             container = tk.Frame(form_frame, bg=self.colors['bg_primary'])
             container.pack(fill=tk.X, pady=10)
-            
-            tk.Label(container, text=label_text, 
-                    font=('Segoe UI', 10, 'bold'), 
-                    bg=self.colors['bg_primary'], 
+
+            tk.Label(container, text=label_text,
+                    font=('Segoe UI', 10, 'bold'),
+                    bg=self.colors['bg_primary'],
                     fg=self.colors['text_secondary'],
                     anchor=tk.W).pack(fill=tk.X, pady=(0, 8))
-            
-            entry = tk.Entry(container, 
-                            font=('Segoe UI', 11), 
-                            bg=self.colors['bg_card'], 
+
+            entry = tk.Entry(container,
+                            font=('Segoe UI', 11),
+                            bg=self.colors['bg_card'],
                             fg=self.colors['text_primary'],
                             insertbackground=self.colors['text_primary'],
                             relief=tk.FLAT,
@@ -545,6 +591,39 @@ class GameApp:
                             highlightcolor=self.colors['accent'])
             entry.pack(fill=tk.X, pady=(0, 5))
             self.add_entries[key] = entry
+
+        # Выбор изображения
+        img_frame = tk.Frame(form_frame, bg=self.colors['bg_primary'])
+        img_frame.pack(fill=tk.X, pady=10)
+
+        tk.Label(img_frame, text="Изображение",
+                font=('Segoe UI', 10, 'bold'),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['text_secondary'],
+                anchor=tk.W).pack(fill=tk.X, pady=(0, 8))
+
+        img_btn_frame = tk.Frame(img_frame, bg=self.colors['bg_primary'])
+        img_btn_frame.pack(fill=tk.X, pady=(0, 5))
+
+        self.add_image_path = tk.StringVar()
+        self.add_image_label = tk.Label(img_btn_frame, text="Файл не выбран",
+                                       font=('Segoe UI', 9),
+                                       bg=self.colors['bg_primary'],
+                                       fg=self.colors['text_muted'],
+                                       anchor=tk.W)
+        self.add_image_label.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        tk.Button(img_btn_frame, text="ВЫБРАТЬ ФАЙЛ",
+                 font=('Segoe UI', 9, 'bold'),
+                 bg=self.colors['bg_input'],
+                 fg=self.colors['text_primary'],
+                 activebackground=self.colors['accent'],
+                 activeforeground='#ffffff',
+                 relief=tk.FLAT,
+                 padx=15, pady=8,
+                 cursor='hand2',
+                 borderwidth=0,
+                 command=self.select_add_image).pack(side=tk.RIGHT)
 
         # Чекбокс
         check_frame = tk.Frame(form_frame, bg=self.colors['bg_primary'])
@@ -646,7 +725,28 @@ class GameApp:
                               pady=8)
         self.status.pack(side=tk.BOTTOM, fill=tk.X)
 
-    def get_steam_image(self, game_title):
+    def get_steam_image(self, game_title, game_image_url=None):
+        # Если есть пользовательский путь/URL, используем его
+        if game_image_url:
+            try:
+                # Проверяем, это локальный файл или URL
+                if os.path.exists(game_image_url):
+                    # Локальный файл
+                    image = Image.open(game_image_url)
+                    image = image.resize((400, 225), Image.Resampling.LANCZOS)
+                    return ImageTk.PhotoImage(image)
+                elif game_image_url.startswith('http'):
+                    # URL
+                    req = urllib.request.Request(game_image_url, headers={'User-Agent': 'Mozilla/5.0'})
+                    with urllib.request.urlopen(req, timeout=8) as response:
+                        image_data = response.read()
+                        image = Image.open(io.BytesIO(image_data))
+                        image = image.resize((400, 225), Image.Resampling.LANCZOS)
+                        return ImageTk.PhotoImage(image)
+            except Exception as e:
+                print(f"Custom image error for '{game_title}': {e}")
+
+        # Ищем изображение в Steam
         try:
             search_term = game_title.replace(' ', '%20')
             search_url = f"https://store.steampowered.com/api/storesearch/?term={search_term}&l=english&cc=us"
@@ -679,69 +779,113 @@ class GameApp:
 
     def _create_placeholder_image(self, title):
         img = Image.new('RGB', (400, 225), color='#4f46e5')
-        
+
         for i in range(225):
             for j in range(400):
                 r = int(79 + (i / 225) * 50)
                 g = int(70 + (i / 225) * 30)
                 b = int(229 + (i / 225) * 26)
                 img.putpixel((j, i), (min(r, 255), min(g, 255), min(b, 255)))
-        
+
         try:
             draw = ImageDraw.Draw(img)
-            
-            font_sizes = [90, 80, 70, 60, 50]
+
             font = None
-            for size in font_sizes:
-                try:
-                    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", size)
-                    break
-                except:
+            font_paths = [
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+                "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+                "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+                "arial.ttf",
+                "arialbd.ttf"
+            ]
+            font_sizes = [90, 80, 70, 60, 50]
+
+            for font_path in font_paths:
+                for size in font_sizes:
                     try:
-                        font = ImageFont.truetype("arial.ttf", size)
+                        font = ImageFont.truetype(font_path, size)
                         break
                     except:
                         continue
-            
+                if font:
+                    break
+
             if font is None:
-                font = ImageFont.load_default()
-            
-            first_letter = title[0].upper() if title else '?'
-            
-            bbox = draw.textbbox((0, 0), first_letter, font=font)
-            text_width = bbox[2] - bbox[0]
-            text_height = bbox[3] - bbox[1]
-            x = (400 - text_width) // 2
-            y = (225 - text_height) // 2
-            
-            draw.text((x, y), first_letter, fill='white', font=font)
-            
-            short_title = title[:25] + '...' if len(title) > 28 else title
-            small_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14) if font else ImageFont.load_default()
-            bbox = draw.textbbox((0, 0), short_title, font=small_font)
-            text_width = bbox[2] - bbox[0]
-            draw.text(((400 - text_width) // 2, 195), short_title, fill='rgba(255,255,255,0.8)', font=small_font)
-            
+                try:
+                    font = ImageFont.load_default()
+                except:
+                    font = None
+
+            if font:
+                first_letter = title[0].upper() if title else '?'
+
+                bbox = draw.textbbox((0, 0), first_letter, font=font)
+                text_width = bbox[2] - bbox[0]
+                text_height = bbox[3] - bbox[1]
+                x = (400 - text_width) // 2
+                y = (225 - text_height) // 2
+
+                draw.text((x, y), first_letter, fill='white', font=font)
+
+                short_title = title[:25] + '...' if len(title) > 28 else title
+                small_font = None
+                for font_path in font_paths:
+                    try:
+                        small_font = ImageFont.truetype(font_path, 14)
+                        break
+                    except:
+                        continue
+
+                if small_font:
+                    bbox = draw.textbbox((0, 0), short_title, font=small_font)
+                    text_width = bbox[2] - bbox[0]
+                    draw.text(((400 - text_width) // 2, 195), short_title, fill='#CCCCCC', font=small_font)
+
         except Exception as e:
             print(f"Placeholder error: {e}")
-        
+
         return ImageTk.PhotoImage(img)
 
-    def load_and_show_image(self, title):
+    def load_and_show_image(self, title, game_image_url=None):
+        # Если есть кастомное изображение, не используем кэш
+        if game_image_url:
+            try:
+                if os.path.exists(game_image_url):
+                    # Локальный файл
+                    image = Image.open(game_image_url)
+                    image = image.resize((400, 225), Image.Resampling.LANCZOS)
+                    photo = ImageTk.PhotoImage(image)
+                    self.root.after(0, lambda: [self._update_image(photo), self.loading_label.config(text="")])
+                    return
+                elif game_image_url.startswith('http'):
+                    # URL
+                    req = urllib.request.Request(game_image_url, headers={'User-Agent': 'Mozilla/5.0'})
+                    with urllib.request.urlopen(req, timeout=8) as response:
+                        image_data = response.read()
+                        image = Image.open(io.BytesIO(image_data))
+                        image = image.resize((400, 225), Image.Resampling.LANCZOS)
+                        photo = ImageTk.PhotoImage(image)
+                        self.root.after(0, lambda: [self._update_image(photo), self.loading_label.config(text="")])
+                        return
+            except Exception as e:
+                print(f"Custom image error for '{title}': {e}")
+
+        # Проверяем кэш только для Steam изображений
         cached = self.image_cache.get(title)
         if cached:
             self.root.after(0, lambda: [self._update_image(cached), self.loading_label.config(text="")])
             return
-        
+
         if self.image_cache.is_loading(title):
             return
-        
+
         self.image_cache.set_loading(title, True)
-        
-        photo = self.get_steam_image(title)
-        
+
+        photo = self.get_steam_image(title, None)
+
         self.image_cache.set_loading(title, False)
-        
+
         if photo:
             self.image_cache.set(title, photo)
             self.root.after(0, lambda: [self._update_image(photo), self.loading_label.config(text="")])
@@ -759,7 +903,7 @@ class GameApp:
         title = item['values'][0]
 
         for game in self.games:
-            if game['title'] == title or title.startswith(game['title'][:30]):
+            if game['title'] == title or (len(title) >= 3 and game['title'].startswith(title[:3])):
                 self.selected_game = game
                 self.show_game_details(game)
                 break
@@ -827,7 +971,7 @@ class GameApp:
         # Загружаем изображение
         self.image_label.config(image='')
         self.loading_label.config(text="Загрузка...")
-        threading.Thread(target=self.load_and_show_image, args=(game['title'],), daemon=True).start()
+        threading.Thread(target=self.load_and_show_image, args=(game['title'], game.get('image_url')), daemon=True).start()
 
     def select_executable(self):
         """Выбор исполняемого файла игры"""
@@ -867,6 +1011,109 @@ class GameApp:
             else:
                 messagebox.showerror("Ошибка", f"Не удалось сохранить путь: {error}")
 
+    def edit_image_url(self):
+        """Редактирование изображения игры (выбор файла)"""
+        if not self.selected_game:
+            messagebox.showinfo("Инфо", "Сначала выберите игру")
+            return
+
+        # Создаем диалоговое окно
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Изменить изображение")
+        dialog.geometry("500x250")
+        dialog.configure(bg=self.colors['bg_primary'])
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        tk.Label(dialog, text="ИЗОБРАЖЕНИЕ ИГРЫ",
+                font=('Segoe UI', 11, 'bold'),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['text_primary']).pack(padx=20, pady=(20, 10))
+
+        tk.Label(dialog, text="Выберите файл изображения (JPEG, PNG, GIF, BMP, WEBP)",
+                font=('Segoe UI', 9),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['text_secondary']).pack(padx=20, pady=(0, 15))
+
+        # Поле для отображения выбранного файла
+        current_path = self.selected_game.get('image_url') or ''
+        image_path_var = tk.StringVar(value=current_path)
+
+        path_frame = tk.Frame(dialog, bg=self.colors['bg_primary'])
+        path_frame.pack(fill=tk.X, padx=20, pady=10)
+
+        path_label = tk.Label(path_frame, text="Файл не выбран" if not current_path else os.path.basename(current_path),
+                             font=('Segoe UI', 9),
+                             bg=self.colors['bg_primary'],
+                             fg=self.colors['success'] if current_path else self.colors['text_muted'],
+                             anchor=tk.W,
+                             wraplength=350)
+        path_label.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        def select_file():
+            filepath = filedialog.askopenfilename(
+                title="Выберите изображение",
+                filetypes=[
+                    ("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.webp"),
+                    ("All files", "*.*")
+                ]
+            )
+            if filepath:
+                # Копируем файл в папку приложения
+                import shutil
+                images_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'images')
+                os.makedirs(images_dir, exist_ok=True)
+                
+                filename = os.path.basename(filepath)
+                new_path = os.path.join(images_dir, filename)
+                
+                try:
+                    shutil.copy2(filepath, new_path)
+                    image_path_var.set(new_path)
+                    path_label.config(text=filename, fg=self.colors['success'])
+                except Exception as e:
+                    messagebox.showerror("Ошибка", f"Не удалось скопировать файл: {e}")
+
+        tk.Button(path_frame, text="ВЫБРАТЬ ФАЙЛ",
+                 font=('Segoe UI', 9, 'bold'),
+                 bg=self.colors['bg_input'],
+                 fg=self.colors['text_primary'],
+                 activebackground=self.colors['accent'],
+                 activeforeground='#ffffff',
+                 relief=tk.FLAT,
+                 padx=15, pady=8,
+                 cursor='hand2',
+                 borderwidth=0,
+                 command=select_file).pack(side=tk.RIGHT)
+
+        def save_path():
+            new_path = image_path_var.get() if image_path_var.get() else None
+            success, error = self.db.update_image_url(self.selected_game['id'], new_path)
+            if success:
+                self.selected_game['image_url'] = new_path
+                # Очищаем кэш для этой игры
+                self.image_cache.cache.pop(self.selected_game['title'], None)
+                messagebox.showinfo("Успешно", "Изображение сохранено!")
+                # Обновляем изображение
+                self.image_label.config(image='')
+                self.loading_label.config(text="Загрузка...")
+                threading.Thread(target=self.load_and_show_image, args=(self.selected_game['title'], self.selected_game.get('image_url')), daemon=True).start()
+                dialog.destroy()
+            else:
+                messagebox.showerror("Ошибка", f"Не удалось сохранить: {error}")
+
+        tk.Button(dialog, text="СОХРАНИТЬ",
+                 font=('Segoe UI', 10, 'bold'),
+                 bg=self.colors['accent'],
+                 fg='#ffffff',
+                 activebackground=self.colors['accent_hover'],
+                 activeforeground='#ffffff',
+                 relief=tk.FLAT,
+                 padx=30, pady=10,
+                 cursor='hand2',
+                 borderwidth=0,
+                 command=save_path).pack(pady=20)
+
     def launch_game(self):
         """Запуск выбранной игры"""
         if not self.selected_game:
@@ -884,8 +1131,8 @@ class GameApp:
             # Это protocol link - пробуем несколько способов открытия
             try:
                 # Пробуем xdg-open
-                subprocess.Popen(['xdg-open', executable_path], 
-                                stdout=subprocess.DEVNULL, 
+                subprocess.Popen(['xdg-open', executable_path],
+                                stdout=subprocess.DEVNULL,
                                 stderr=subprocess.DEVNULL)
                 messagebox.showinfo("Запуск", f"Игра \"{self.selected_game['title']}\" запускается через {executable_path.split('://')[0].title()}...\n\nЕсли не запустилось, убедитесь, что клиент Steam установлен и запущен.")
             except FileNotFoundError:
@@ -895,7 +1142,7 @@ class GameApp:
                     webbrowser.open(executable_path)
                     messagebox.showinfo("Запуск", f"Игра \"{self.selected_game['title']}\" запускается через браузер...")
                 except Exception as e:
-                    messagebox.showerror("Ошибка запуска", 
+                    messagebox.showerror("Ошибка запуска",
                         f"Не удалось открыть protocol link {executable_path}\n\n"
                         f"Для Steam игр:\n"
                         f"1. Убедитесь, что Steam установлен и запущен\n"
@@ -934,6 +1181,226 @@ class GameApp:
         except Exception as e:
             messagebox.showerror("Ошибка запуска", f"Не удалось запустить игру:\n{str(e)}")
 
+    def delete_game(self):
+        """Удаление выбранной игры"""
+        if not self.selected_game:
+            messagebox.showinfo("Инфо", "Сначала выберите игру")
+            return
+
+        # Подтверждение удаления
+        confirm = messagebox.askyesno(
+            "Подтверждение",
+            f"Вы действительно хотите удалить игру\n\"{self.selected_game['title']}\"?\n\nЭто действие нельзя отменить!",
+            icon=messagebox.WARNING
+        )
+
+        if not confirm:
+            return
+
+        # Удаляем из БД
+        success, error = self.db.delete_game(self.selected_game['id'])
+        if success:
+            # Удаляем файл изображения если он есть
+            image_path = self.selected_game.get('image_url')
+            if image_path and os.path.exists(image_path):
+                try:
+                    os.remove(image_path)
+                except:
+                    pass
+
+            # Обновляем список игр
+            self.games = self.db.get_all_games()
+            self.index = GameIndex(self.games)
+
+            # Очищаем детали
+            self.selected_game = None
+            self.image_label.config(image='')
+            self.loading_label.config(text='')
+            for label, _ in self.game_info.values():
+                label.config(text='')
+            self.exe_path_label.config(text='')
+
+            # Обновляем дерево
+            self.list_tree.selection_remove(self.list_tree.selection())
+            self.show_sorted_list('title')
+
+            messagebox.showinfo("Успешно", "Игра удалена!")
+        else:
+            messagebox.showerror("Ошибка", f"Не удалось удалить игру:\n{error}")
+
+    def show_system_requirements(self):
+        """Показать/редактировать системные требования"""
+        if not self.selected_game:
+            messagebox.showinfo("Инфо", "Сначала выберите игру")
+            return
+
+        game_id = self.selected_game['id']
+        game_title = self.selected_game['title']
+
+        # Получаем текущие требования
+        req = self.db.get_system_requirements(game_id)
+
+        # Создаем диалоговое окно
+        dialog = tk.Toplevel(self.root)
+        dialog.title(f"Системные требования - {game_title[:30]}")
+        dialog.geometry("700x650")
+        dialog.configure(bg=self.colors['bg_primary'])
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        # Заголовок
+        tk.Label(dialog, text="СИСТЕМНЫЕ ТРЕБОВАНИЯ",
+                font=('Segoe UI', 14, 'bold'),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['text_primary']).pack(pady=(20, 10))
+
+        # Canvas с прокруткой
+        canvas = tk.Canvas(dialog, bg=self.colors['bg_primary'], highlightthickness=0, borderwidth=0)
+        scrollbar = ttk.Scrollbar(dialog, orient=tk.VERTICAL, command=canvas.yview)
+
+        form_frame = tk.Frame(canvas, bg=self.colors['bg_primary'])
+
+        form_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+
+        canvas_window = canvas.create_window((0, 0), window=form_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=20, pady=20)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y, pady=20)
+
+        def _on_mousewheel(event):
+            try:
+                canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+            except:
+                pass
+        canvas.bind("<MouseWheel>", _on_mousewheel)
+
+        # Минимальные требования
+        tk.Label(form_frame, text="МИНИМАЛЬНЫЕ ТРЕБОВАНИЯ",
+                font=('Segoe UI', 11, 'bold'),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['accent']).pack(anchor=tk.W, pady=(10, 10))
+
+        min_fields = [
+            ('ОС', 'min_os', req.get('min_os') if req else ''),
+            ('Процессор', 'min_processor', req.get('min_processor') if req else ''),
+            ('Оперативная память', 'min_memory', req.get('min_memory') if req else ''),
+            ('Видеокарта', 'min_graphics', req.get('min_graphics') if req else ''),
+            ('DirectX', 'min_directx', req.get('min_directx') if req else ''),
+            ('Место на диске', 'min_storage', req.get('min_storage') if req else ''),
+        ]
+
+        min_entries = {}
+        for label_text, key, default in min_fields:
+            container = tk.Frame(form_frame, bg=self.colors['bg_primary'])
+            container.pack(fill=tk.X, pady=5)
+
+            tk.Label(container, text=label_text,
+                    font=('Segoe UI', 9, 'bold'),
+                    bg=self.colors['bg_primary'],
+                    fg=self.colors['text_secondary'],
+                    anchor=tk.W).pack(fill=tk.X, pady=(0, 5))
+
+            entry = tk.Entry(container,
+                            font=('Segoe UI', 10),
+                            bg=self.colors['bg_card'],
+                            fg=self.colors['text_primary'],
+                            insertbackground=self.colors['text_primary'],
+                            relief=tk.FLAT,
+                            highlightthickness=1,
+                            highlightbackground=self.colors['border'],
+                            highlightcolor=self.colors['accent'])
+            entry.pack(fill=tk.X)
+            entry.insert(0, default)
+            min_entries[key] = entry
+
+        # Рекомендуемые требования
+        tk.Label(form_frame, text="РЕКОМЕНДУЕМЫЕ ТРЕБОВАНИЯ",
+                font=('Segoe UI', 11, 'bold'),
+                bg=self.colors['bg_primary'],
+                fg=self.colors['success']).pack(anchor=tk.W, pady=(20, 10))
+
+        rec_fields = [
+            ('ОС', 'rec_os', req.get('rec_os') if req else ''),
+            ('Процессор', 'rec_processor', req.get('rec_processor') if req else ''),
+            ('Оперативная память', 'rec_memory', req.get('rec_memory') if req else ''),
+            ('Видеокарта', 'rec_graphics', req.get('rec_graphics') if req else ''),
+            ('DirectX', 'rec_directx', req.get('rec_directx') if req else ''),
+            ('Место на диске', 'rec_storage', req.get('rec_storage') if req else ''),
+        ]
+
+        rec_entries = {}
+        for label_text, key, default in rec_fields:
+            container = tk.Frame(form_frame, bg=self.colors['bg_primary'])
+            container.pack(fill=tk.X, pady=5)
+
+            tk.Label(container, text=label_text,
+                    font=('Segoe UI', 9, 'bold'),
+                    bg=self.colors['bg_primary'],
+                    fg=self.colors['text_secondary'],
+                    anchor=tk.W).pack(fill=tk.X, pady=(0, 5))
+
+            entry = tk.Entry(container,
+                            font=('Segoe UI', 10),
+                            bg=self.colors['bg_card'],
+                            fg=self.colors['text_primary'],
+                            insertbackground=self.colors['text_primary'],
+                            relief=tk.FLAT,
+                            highlightthickness=1,
+                            highlightbackground=self.colors['border'],
+                            highlightcolor=self.colors['accent'])
+            entry.pack(fill=tk.X)
+            entry.insert(0, default)
+            rec_entries[key] = entry
+
+        def save_requirements():
+            requirements = {
+                'min_os': min_entries['min_os'].get().strip(),
+                'min_processor': min_entries['min_processor'].get().strip(),
+                'min_memory': min_entries['min_memory'].get().strip(),
+                'min_graphics': min_entries['min_graphics'].get().strip(),
+                'min_directx': min_entries['min_directx'].get().strip(),
+                'min_storage': min_entries['min_storage'].get().strip(),
+                'rec_os': rec_entries['rec_os'].get().strip(),
+                'rec_processor': rec_entries['rec_processor'].get().strip(),
+                'rec_memory': rec_entries['rec_memory'].get().strip(),
+                'rec_graphics': rec_entries['rec_graphics'].get().strip(),
+                'rec_directx': rec_entries['rec_directx'].get().strip(),
+                'rec_storage': rec_entries['rec_storage'].get().strip(),
+            }
+
+            success, error = self.db.update_system_requirements(game_id, requirements)
+            if success:
+                messagebox.showinfo("Успешно", "Системные требования сохранены!")
+                dialog.destroy()
+            else:
+                messagebox.showerror("Ошибка", f"Не удалось сохранить:\n{error}")
+
+        tk.Button(form_frame, text="СОХРАНИТЬ",
+                 font=('Segoe UI', 11, 'bold'),
+                 bg=self.colors['accent'],
+                 fg='#ffffff',
+                 activebackground=self.colors['accent_hover'],
+                 activeforeground='#ffffff',
+                 relief=tk.FLAT,
+                 padx=40, pady=12,
+                 cursor='hand2',
+                 borderwidth=0,
+                 command=save_requirements).pack(pady=20)
+
+    def toggle_sort(self, sort_type):
+        """Toggle sort direction for a column"""
+        # Toggle direction: if same column, reverse; otherwise default to ascending
+        if sort_type not in self.sort_directions:
+            self.sort_directions[sort_type] = True  # Default: ascending
+        else:
+            self.sort_directions[sort_type] = not self.sort_directions[sort_type]
+        
+        self.show_sorted_list(sort_type)
+
     def show_sorted_list(self, sort_type):
         self.status.config(text=f"Сортировка: {sort_type}...")
         self.root.update()
@@ -942,23 +1409,35 @@ class GameApp:
         games = self.index.get_sorted_by(sort_type)
         elapsed = time.time() - start
 
+        # Reverse if descending
+        if self.sort_directions.get(sort_type, True) == False:
+            games = list(reversed(games))
+
         for item in self.list_tree.get_children():
             self.list_tree.delete(item)
 
         for game in games:
             score = f"{game['metacritic_score']}" if game['metacritic_score'] else '-'
+            age = f"{game['age_rating']}+" if game['age_rating'] else '-'
             self.list_tree.insert('', tk.END, values=(
-                game['title'][:45],
-                game['publisher'][:30],
-                str(game['release_date'])[:10],
-                score
+                game['title'][:45] if game['title'] else '',
+                game['developer'][:30] if game['developer'] else '-',
+                game['publisher'][:30] if game['publisher'] else '-',
+                str(game['release_date'])[:10] if game['release_date'] else '-',
+                score,
+                age
             ))
 
+        # Update button states with arrows
         for st, btn in self.sort_buttons.items():
             if st == sort_type:
-                btn.config(bg=self.colors['accent'], fg='#ffffff')
+                arrow = "▲" if self.sort_directions.get(st, True) else "▼"
+                btn.config(text=self.sort_buttons[st].cget('text').split()[0] + " " + arrow,
+                          bg=self.colors['accent'], fg='#ffffff')
             else:
-                btn.config(bg=self.colors['bg_input'], fg=self.colors['text_primary'])
+                # Reset other buttons to default (ascending arrow)
+                btn.config(text=self.sort_buttons[st].cget('text').split()[0] + " ▲",
+                          bg=self.colors['bg_input'], fg=self.colors['text_primary'])
 
         self.status.config(text=f"Показано {len(games)} игр | {elapsed:.4f} сек")
 
@@ -995,13 +1474,39 @@ class GameApp:
         for game in results:
             score = f"{game['metacritic_score']}" if game['metacritic_score'] else '-'
             age = f"{game['age_rating']}+" if game['age_rating'] else '-'
+            publisher = game['publisher'][:30] if game['publisher'] else '-'
             self.search_tree.insert('', tk.END, values=(
-                game['title'][:45],
-                game['publisher'][:30],
-                str(game['release_date'])[:10],
+                game['title'][:45] if game['title'] else '',
+                publisher,
+                str(game['release_date'])[:10] if game['release_date'] else '',
                 score,
                 age
             ))
+
+    def select_add_image(self):
+        """Выбор файла изображения для добавляемой игры"""
+        filepath = filedialog.askopenfilename(
+            title="Выберите изображение",
+            filetypes=[
+                ("Image files", "*.jpg *.jpeg *.png *.gif *.bmp *.webp"),
+                ("All files", "*.*")
+            ]
+        )
+        if filepath:
+            # Копируем файл в папку приложения для доступа из WSL
+            import shutil
+            images_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'images')
+            os.makedirs(images_dir, exist_ok=True)
+            
+            filename = os.path.basename(filepath)
+            new_path = os.path.join(images_dir, filename)
+            
+            try:
+                shutil.copy2(filepath, new_path)
+                self.add_image_path.set(new_path)
+                self.add_image_label.config(text=filename, fg=self.colors['success'])
+            except Exception as e:
+                messagebox.showerror("Ошибка", f"Не удалось скопировать файл: {e}")
 
     def add_game(self):
         try:
@@ -1018,11 +1523,13 @@ class GameApp:
             platform = self.add_entries['platform'].get().strip() or None
             game_modes = self.add_entries['game_modes'].get().strip() or None
             engine = self.add_entries['engine'].get().strip() or None
-            
+            # Используем путь к файлу изображения вместо URL
+            image_path = self.add_image_path.get() if self.add_image_path.get() else None
+
             # Обработка числовых полей - 0 если пусто
             metacritic_str = self.add_entries['metacritic_score'].get().strip()
             metacritic = int(metacritic_str) if metacritic_str else 0
-            
+
             age_str = self.add_entries['age_rating'].get().strip()
             age = int(age_str) if age_str else 0
 
@@ -1030,7 +1537,7 @@ class GameApp:
             if metacritic < 0 or metacritic > 100:
                 messagebox.showerror("Ошибка", "Оценка Metacritic должна быть от 0 до 100")
                 return
-            
+
             if age < 0 or age > 100:
                 messagebox.showerror("Ошибка", "Возрастной рейтинг должен быть от 0 до 100")
                 return
@@ -1055,9 +1562,10 @@ class GameApp:
                     game_modes=game_modes,
                     engine=engine,
                     russian_language=self.russian_var.get(),
-                    age_rating=age
+                    age_rating=age,
+                    image_url=image_path
             )
-            
+
             if success:
                 self.games = self.db.get_all_games()
                 self.index = GameIndex(self.games)
@@ -1067,13 +1575,15 @@ class GameApp:
                 for entry in self.add_entries.values():
                     entry.delete(0, tk.END)
                 self.russian_var.set(False)
+                self.add_image_path.set("")
+                self.add_image_label.config(text="Файл не выбран", fg=self.colors['text_muted'])
 
                 # Обновляем список
                 self.show_sorted_list('title')
                 messagebox.showinfo("Успех", f"Игра '{title}' добавлена!")
             else:
                 messagebox.showerror("Ошибка добавления", error or "Не удалось добавить игру в базу данных")
-                
+
         except ValueError as e:
             messagebox.showerror("Ошибка", f"Неверный формат данных:\n{e}")
         except Exception as e:
@@ -1085,10 +1595,10 @@ class GameApp:
 
         names = {
             'title': 'По названию',
-            'publisher_title': 'По издателю + названию',
-            'release_title': 'По дате выхода + названию',
-            'metacritic_title': 'По Metacritic + названию',
-            'age_title': 'По возрасту + названию'
+            'publisher': 'По издателю',
+            'release_date': 'По дате выхода',
+            'metacritic_score': 'По рейтингу Metacritic',
+            'age_rating': 'По возрасту'
         }
 
         self.stats_text.insert(tk.END, "=" * 58 + "\n")
