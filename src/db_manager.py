@@ -1,278 +1,182 @@
-import psycopg2
-from psycopg2 import errors
-from psycopg2.extras import RealDictCursor
-from typing import List, Dict, Any, Optional
+import json
 import os
-import subprocess
-import time
-import sys
+from typing import List, Dict, Any, Optional
+from datetime import date
 
 
 class DatabaseManager:
-    def __init__(self, database=None, host=None, user=None, password=None, port=None):
-        self.db_config = {
-            'dbname': database or 'games_db_new',
-            'user': user or 'postgres',
-            'password': password or '1234',
-            'host': host or 'localhost',
-            'port': port or '5432'
+    def __init__(self, db_file=None):
+        self.db_file = db_file or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'games_db.json')
+        self.data = {
+            'games': [],
+            'system_requirements': []
         }
-        self.connection = None
-        self.cursor = None
-
-    def _try_start_postgresql(self):
-        """Пытается запустить PostgreSQL локально"""
-        print("→ Попытка запуска PostgreSQL...")
-        
-        if sys.platform == 'win32':
-            # Windows
-            pg_versions = ['16', '15', '14', '13']
-            pg_paths = [
-                r'C:\Program Files\PostgreSQL',
-                r'C:\Program Files (x86)\PostgreSQL'
-            ]
-            
-            pg_ctl = None
-            pg_data = None
-            
-            for version in pg_versions:
-                for base_path in pg_paths:
-                    ctl_path = os.path.join(base_path, version, 'bin', 'pg_ctl.exe')
-                    data_path = os.path.join(base_path, version, 'data')
-                    if os.path.exists(ctl_path) and os.path.exists(data_path):
-                        pg_ctl = ctl_path
-                        pg_data = data_path
-                        break
-                if pg_ctl:
-                    break
-            
-            # Пробуем найти через PATH
-            if not pg_ctl:
-                try:
-                    result = subprocess.run(['where', 'pg_ctl'], capture_output=True, text=True)
-                    if result.returncode == 0:
-                        pg_ctl = result.stdout.strip().split('\n')[0].strip()
-                        # Пытаемся определить data directory
-                        pg_data = os.path.join(os.path.dirname(os.path.dirname(pg_ctl)), 'data')
-                except:
-                    pass
-            
-            if pg_ctl and pg_data and os.path.exists(pg_data):
-                try:
-                    # Запускаем PostgreSQL
-                    subprocess.Popen(
-                        [pg_ctl, 'start', '-D', pg_data, '-w'],
-                        creationflags=subprocess.CREATE_NO_WINDOW
-                    )
-                    time.sleep(3)  # Ждем запуска
-                    print("✓ PostgreSQL запущен")
-                    return True
-                except Exception as e:
-                    print(f"✗ Ошибка запуска PostgreSQL: {e}")
-            else:
-                print("✗ PostgreSQL не найден. Установите PostgreSQL:")
-                print("  https://www.postgresql.org/download/windows/")
-        
-        elif sys.platform == 'linux':
-            # Linux
-            try:
-                # Пробуем разные способы запуска
-                for cmd in [
-                    'sudo systemctl start postgresql',
-                    'sudo service postgresql start',
-                    'pg_ctlcluster 16 main start',
-                    'pg_ctlcluster 15 main start',
-                    'pg_ctlcluster 14 main start'
-                ]:
-                    result = subprocess.run(cmd, shell=True, capture_output=True)
-                    if result.returncode == 0:
-                        time.sleep(2)
-                        print("✓ PostgreSQL запущен")
-                        return True
-                
-                print("✗ Не удалось запустить PostgreSQL")
-            except Exception as e:
-                print(f"✗ Ошибка: {e}")
-        
-        elif sys.platform == 'darwin':
-            # macOS
-            try:
-                result = subprocess.run(['brew', 'services', 'start', 'postgresql'], capture_output=True)
-                if result.returncode == 0:
-                    time.sleep(2)
-                    print("✓ PostgreSQL запущен")
-                    return True
-            except:
-                pass
-        
-        return False
+        self.next_game_id = 1
+        self.next_requirement_id = 1
 
     def connect(self):
+        """Подключение к файловой базе данных"""
         try:
-            self.connection = psycopg2.connect(**self.db_config)
-            self.cursor = self.connection.cursor(cursor_factory=RealDictCursor)
+            if os.path.exists(self.db_file):
+                with open(self.db_file, 'r', encoding='utf-8') as f:
+                    self.data = json.load(f)
+                    # Определяем следующий ID
+                    if self.data.get('games'):
+                        self.next_game_id = max(g['id'] for g in self.data['games']) + 1
+                    if self.data.get('system_requirements'):
+                        self.next_requirement_id = max(r['id'] for r in self.data['system_requirements']) + 1
             return True
         except Exception as e:
             print(f"Ошибка подключения: {e}")
-            # Пытаемся запустить PostgreSQL и подключаемся снова
-            if self._try_start_postgresql():
-                time.sleep(2)
-                try:
-                    self.connection = psycopg2.connect(**self.db_config)
-                    self.cursor = self.connection.cursor(cursor_factory=RealDictCursor)
-                    return True
-                except Exception as e2:
-                    print(f"Ошибка подключения после запуска: {e2}")
             return False
 
     def disconnect(self):
-        if self.connection:
-            self.connection.close()
+        """Отключение от базы данных"""
+        self._save()
+
+    def _save(self):
+        """Сохранение данных в файл"""
+        try:
+            with open(self.db_file, 'w', encoding='utf-8') as f:
+                json.dump(self.data, f, ensure_ascii=False, indent=2, default=str)
+        except Exception as e:
+            print(f"Ошибка сохранения: {e}")
 
     def init_database(self):
-        try:
-            self.cursor.execute("SELECT COUNT(*) FROM games")
-            count = self.cursor.fetchone()['count']
-            if count > 0:
-                print(f"В базе {count} игр")
-                # Проверяем наличие колонки executable_path и добавляем если нет
-                self._add_executable_path_column_if_missing()
-                return True
-        except Exception as e:
-            print(f"Ошибка проверки базы: {e}")
-            self.connection.rollback()
-
-        try:
+        """Инициализация базы данных"""
+        if not self.data.get('games') or len(self.data['games']) == 0:
+            # Загружаем данные из init_db.json если существует
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            sql_file = os.path.join(script_dir, '..', 'init_db.sql')
+            json_file = os.path.join(script_dir, '..', 'init_db.json')
 
-            if not os.path.exists(sql_file):
-                print(f"Файл не найден: {sql_file}")
+            if os.path.exists(json_file):
+                try:
+                    with open(json_file, 'r', encoding='utf-8') as f:
+                        games_data = json.load(f)
+                        self.data['games'] = games_data.get('games', [])
+                        self.data['system_requirements'] = games_data.get('system_requirements', [])
+
+                        # Обновляем счетчики ID
+                        if self.data['games']:
+                            self.next_game_id = max(g['id'] for g in self.data['games']) + 1
+                        if self.data['system_requirements']:
+                            self.next_requirement_id = max(r['id'] for r in self.data['system_requirements']) + 1
+
+                        self._save()
+                        print(f"Загружено {len(self.data['games'])} игр")
+                        return True
+                except Exception as e:
+                    print(f"Ошибка загрузки из init_db.json: {e}")
+                    return False
+            else:
+                print(f"Файл не найден: {json_file}")
                 return False
-
-            with open(sql_file, 'r', encoding='utf-8') as f:
-                self.cursor.execute(f.read())
-            self.connection.commit()
-
-            self.cursor.execute("SELECT COUNT(*) FROM games")
-            count = self.cursor.fetchone()['count']
-            print(f"Загружено {count} игр")
+        else:
+            count = len(self.data['games'])
+            print(f"В базе {count} игр")
             return True
-        except Exception as e:
-            print(f"Ошибка: {e}")
-            self.connection.rollback()
-            return False
-
-    def _add_executable_path_column_if_missing(self):
-        """Добавляет колонку executable_path если она отсутствует"""
-        try:
-            self.cursor.execute("""
-                SELECT column_name FROM information_schema.columns 
-                WHERE table_name = 'games' AND column_name = 'executable_path'
-            """)
-            result = self.cursor.fetchone()
-            if not result:
-                self.cursor.execute("ALTER TABLE games ADD COLUMN executable_path VARCHAR(500)")
-                self.connection.commit()
-                print("Добавлена колонка executable_path")
-        except Exception as e:
-            print(f"Ошибка добавления колонки: {e}")
-            self.connection.rollback()
 
     def get_all_games(self) -> List[Dict[str, Any]]:
-        try:
-            self.cursor.execute('SELECT * FROM games ORDER BY id')
-            return [dict(row) for row in self.cursor.fetchall()]
-        except Exception as e:
-            print(f"Ошибка: {e}")
-            return []
+        """Получить все игры"""
+        return self.data.get('games', [])
 
     def add_game(self, title: str, developer: str, publisher: str, release_date: str,
                  metacritic_score: int, genre: str, platform: str, game_modes: str,
                  engine: str, russian_language: bool, age_rating: int, image_url: str = None) -> tuple:
         """Добавить игру. Возвращает (True, None) при успехе или (False, ошибка) при неудаче"""
         try:
-            self.cursor.execute('''
-                INSERT INTO games (title, developer, publisher, release_date,
-                                   metacritic_score, genre, platform, game_modes,
-                                   engine, russian_language, age_rating, image_url)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING id
-            ''', (title, developer, publisher, release_date,
-                  metacritic_score, genre, platform, game_modes,
-                  engine, bool(russian_language), age_rating, image_url))
+            game = {
+                'id': self.next_game_id,
+                'title': title,
+                'developer': developer,
+                'publisher': publisher,
+                'release_date': release_date,
+                'metacritic_score': metacritic_score,
+                'genre': genre,
+                'platform': platform,
+                'game_modes': game_modes,
+                'engine': engine,
+                'russian_language': bool(russian_language),
+                'age_rating': age_rating,
+                'executable_path': None,
+                'image_url': image_url
+            }
+            self.data['games'].append(game)
+            game_id = self.next_game_id
+            self.next_game_id += 1
+            self._save()
 
-            result = self.cursor.fetchone()
-            self.connection.commit()
-            
-            if result:
-                game_id = result['id']
-                print(f"Добавлена игра: {title} (ID={game_id})")
-            else:
-                # Если fetchone не вернул результат, получаем последний ID
-                self.cursor.execute('SELECT LASTVAL()')
-                last_id = self.cursor.fetchone()
-                game_id = last_id['lastval'] if last_id else None
-                print(f"Добавлена игра: {title} (ID={game_id})")
-            
+            print(f"Добавлена игра: {title} (ID={game_id})")
             return (True, None)
         except Exception as e:
             error_msg = f"Ошибка при добавлении игры: {str(e)}"
             print(error_msg)
             import traceback
             traceback.print_exc()
-            self.connection.rollback()
             return (False, error_msg)
 
     def update_executable_path(self, game_id: int, executable_path: Optional[str]) -> tuple:
         """Обновить путь к исполняемому файлу игры. Возвращает (True, None) или (False, ошибка)"""
         try:
-            self.cursor.execute('''
-                UPDATE games SET executable_path = %s WHERE id = %s
-            ''', (executable_path, game_id))
-            self.connection.commit()
-            print(f"Обновлен путь для игры ID={game_id}: {executable_path}")
-            return (True, None)
+            for game in self.data['games']:
+                if game['id'] == game_id:
+                    game['executable_path'] = executable_path
+                    self._save()
+                    print(f"Обновлен путь для игры ID={game_id}: {executable_path}")
+                    return (True, None)
+            error_msg = f"Игра с ID={game_id} не найдена"
+            print(error_msg)
+            return (False, error_msg)
         except Exception as e:
             error_msg = f"Ошибка при обновлении пути: {str(e)}"
             print(error_msg)
-            self.connection.rollback()
             return (False, error_msg)
 
     def update_image_url(self, game_id: int, image_url: Optional[str]) -> tuple:
         """Обновить URL изображения игры. Возвращает (True, None) или (False, ошибка)"""
         try:
-            self.cursor.execute('''
-                UPDATE games SET image_url = %s WHERE id = %s
-            ''', (image_url, game_id))
-            self.connection.commit()
-            print(f"Обновлен URL изображения для игры ID={game_id}: {image_url}")
-            return (True, None)
+            for game in self.data['games']:
+                if game['id'] == game_id:
+                    game['image_url'] = image_url
+                    self._save()
+                    print(f"Обновлен URL изображения для игры ID={game_id}: {image_url}")
+                    return (True, None)
+            error_msg = f"Игра с ID={game_id} не найдена"
+            print(error_msg)
+            return (False, error_msg)
         except Exception as e:
             error_msg = f"Ошибка при обновлении изображения: {str(e)}"
             print(error_msg)
-            self.connection.rollback()
             return (False, error_msg)
 
     def delete_game(self, game_id: int) -> tuple:
         """Удалить игру по ID. Возвращает (True, None) или (False, ошибка)"""
         try:
-            self.cursor.execute('DELETE FROM games WHERE id = %s', (game_id,))
-            self.connection.commit()
-            print(f"Удалена игра ID={game_id}")
-            return (True, None)
+            for i, game in enumerate(self.data['games']):
+                if game['id'] == game_id:
+                    deleted_game = self.data['games'].pop(i)
+                    # Также удаляем системные требования
+                    self.data['system_requirements'] = [
+                        r for r in self.data['system_requirements'] if r['game_id'] != game_id
+                    ]
+                    self._save()
+                    print(f"Удалена игра ID={game_id}")
+                    return (True, None)
+            error_msg = f"Игра с ID={game_id} не найдена"
+            print(error_msg)
+            return (False, error_msg)
         except Exception as e:
             error_msg = f"Ошибка при удалении игры: {str(e)}"
             print(error_msg)
-            self.connection.rollback()
             return (False, error_msg)
 
     def get_system_requirements(self, game_id: int) -> Optional[Dict[str, Any]]:
         """Получить системные требования игры"""
         try:
-            self.cursor.execute('SELECT * FROM system_requirements WHERE game_id = %s', (game_id,))
-            result = self.cursor.fetchone()
-            return dict(result) if result else None
+            for req in self.data.get('system_requirements', []):
+                if req['game_id'] == game_id:
+                    return req
+            return None
         except Exception as e:
             print(f"Ошибка: {e}")
             return None
@@ -280,61 +184,41 @@ class DatabaseManager:
     def update_system_requirements(self, game_id: int, requirements: Dict[str, Any]) -> tuple:
         """Обновить системные требования. Возвращает (True, None) или (False, ошибка)"""
         try:
-            # Проверяем, есть ли уже запись
-            self.cursor.execute('SELECT id FROM system_requirements WHERE game_id = %s', (game_id,))
-            existing = self.cursor.fetchone()
+            # Ищем существующую запись
+            existing_req = None
+            for req in self.data.get('system_requirements', []):
+                if req['game_id'] == game_id:
+                    existing_req = req
+                    break
 
-            if existing:
-                # Обновляем
-                self.cursor.execute('''
-                    UPDATE system_requirements SET
-                        min_os = %s, min_processor = %s, min_memory = %s, min_graphics = %s,
-                        min_directx = %s, min_storage = %s,
-                        rec_os = %s, rec_processor = %s, rec_memory = %s, rec_graphics = %s,
-                        rec_directx = %s, rec_storage = %s
-                    WHERE game_id = %s
-                ''', (
-                    requirements.get('min_os'), requirements.get('min_processor'),
-                    requirements.get('min_memory'), requirements.get('min_graphics'),
-                    requirements.get('min_directx'), requirements.get('min_storage'),
-                    requirements.get('rec_os'), requirements.get('rec_processor'),
-                    requirements.get('rec_memory'), requirements.get('rec_graphics'),
-                    requirements.get('rec_directx'), requirements.get('rec_storage'),
-                    game_id
-                ))
+            if existing_req:
+                # Обновляем существующую запись
+                existing_req.update(requirements)
             else:
-                # Создаём новую запись
-                self.cursor.execute('''
-                    INSERT INTO system_requirements (
-                        game_id, min_os, min_processor, min_memory, min_graphics,
-                        min_directx, min_storage, rec_os, rec_processor, rec_memory,
-                        rec_graphics, rec_directx, rec_storage
-                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                ''', (
-                    game_id,
-                    requirements.get('min_os'), requirements.get('min_processor'),
-                    requirements.get('min_memory'), requirements.get('min_graphics'),
-                    requirements.get('min_directx'), requirements.get('min_storage'),
-                    requirements.get('rec_os'), requirements.get('rec_processor'),
-                    requirements.get('rec_memory'), requirements.get('rec_graphics'),
-                    requirements.get('rec_directx'), requirements.get('rec_storage')
-                ))
+                # Создаем новую запись
+                new_req = {
+                    'id': self.next_requirement_id,
+                    'game_id': game_id,
+                    **requirements
+                }
+                self.data['system_requirements'].append(new_req)
+                self.next_requirement_id += 1
 
-            self.connection.commit()
+            self._save()
             print(f"Обновлены системные требования для игры ID={game_id}")
             return (True, None)
         except Exception as e:
             error_msg = f"Ошибка при обновлении требований: {str(e)}"
             print(error_msg)
-            self.connection.rollback()
             return (False, error_msg)
 
     def get_game_by_id(self, game_id: int) -> Optional[Dict[str, Any]]:
         """Получить игру по ID"""
         try:
-            self.cursor.execute('SELECT * FROM games WHERE id = %s', (game_id,))
-            result = self.cursor.fetchone()
-            return dict(result) if result else None
+            for game in self.data['games']:
+                if game['id'] == game_id:
+                    return game
+            return None
         except Exception as e:
             print(f"Ошибка: {e}")
             return None

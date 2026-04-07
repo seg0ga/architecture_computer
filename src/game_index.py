@@ -1,5 +1,5 @@
 from typing import List, Dict, Any, Optional
-from optimal_tree import OptimalSearchTree
+from src.optimal_tree import OptimalSearchTree
 
 
 def digital_sort_by_title(games):
