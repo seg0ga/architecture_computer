@@ -45,7 +45,7 @@ echo "→ Сборка..."
 pyinstaller --onefile \
     --name "GameLibrary" \
     --add-data "src:src" \
-    --add-data "init_db.sql:." \
+    --add-data "init_db.json:." \
     --hidden-import=PIL \
     --hidden-import=psycopg2 \
     --hidden-import=tkinter \
