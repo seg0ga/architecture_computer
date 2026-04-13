@@ -14,7 +14,7 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/739630/2601b8de105df29d49b8added03b731a8de8018a/header_alt_assets_8.jpg?t=1774955672"
     },
     {
       "id": 2,
@@ -30,7 +30,7 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/e9047d8ec47ae3d94bb8b464fb0fc9e9972b4ac7/header.jpg?t=1769690377"
     },
     {
       "id": 3,
@@ -46,7 +46,7 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861"
     },
     {
       "id": 4,
@@ -62,7 +62,7 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/header.jpg?t=1745368554"
     },
     {
       "id": 5,
@@ -78,7 +78,7 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/header.jpg?t=1745368462"
     },
     {
       "id": 6,
@@ -94,7 +94,7 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991"
     },
     {
       "id": 7,
@@ -110,26 +110,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961"
     },
     {
       "id": 8,
-      "title": "The Last of Us Part II",
-      "developer": "Naughty Dog",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2020-06-19",
-      "metacritic_score": 93,
-      "genre": "Action, Survival Horror",
-      "platform": "PS4, PS5",
-      "game_modes": "Одиночная",
-      "engine": "Naughty Dog Engine",
-      "russian_language": false,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 9,
       "title": "God of War",
       "developer": "Santa Monica Studio",
       "publisher": "Sony Interactive Entertainment",
@@ -142,10 +126,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg"
     },
     {
-      "id": 10,
+      "id": 9,
       "title": "Elden Ring",
       "developer": "FromSoftware",
       "publisher": "Bandai Namco",
@@ -158,10 +142,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1767883716"
     },
     {
-      "id": 11,
+      "id": 10,
       "title": "Minecraft",
       "developer": "Mojang Studios",
       "publisher": "Xbox Game Studios",
@@ -174,10 +158,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1912410/b17fc442c94f80ae6746ea3bd6995905f11c7651/header.jpg?t=1775042549"
     },
     {
-      "id": 12,
+      "id": 11,
       "title": "Grand Theft Auto V",
       "developer": "Rockstar North",
       "publisher": "Rockstar Games",
@@ -190,10 +174,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/header.jpg?t=1765479644"
     },
     {
-      "id": 13,
+      "id": 12,
       "title": "Skyrim",
       "developer": "Bethesda Game Studios",
       "publisher": "Bethesda Softworks",
@@ -206,10 +190,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778"
     },
     {
-      "id": 14,
+      "id": 13,
       "title": "Dark Souls III",
       "developer": "FromSoftware",
       "publisher": "Bandai Namco",
@@ -222,26 +206,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/header.jpg?t=1748630784"
     },
     {
-      "id": 15,
-      "title": "Bloodborne",
-      "developer": "FromSoftware",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2015-03-24",
-      "metacritic_score": 92,
-      "genre": "RPG, Action, Horror",
-      "platform": "PS4, PS5",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "FromSoftware Engine",
-      "russian_language": false,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 16,
+      "id": 14,
       "title": "Sekiro: Shadows Die Twice",
       "developer": "FromSoftware",
       "publisher": "Activision",
@@ -254,10 +222,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662"
     },
     {
-      "id": 17,
+      "id": 15,
       "title": "Monster Hunter: World",
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -270,10 +238,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582010/header.jpg?t=1773328926"
     },
     {
-      "id": 18,
+      "id": 16,
       "title": "Resident Evil Village",
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -286,26 +254,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1196590/header.jpg?t=1770093483"
     },
     {
-      "id": 19,
-      "title": "Resident Evil 2",
-      "developer": "Capcom",
-      "publisher": "Capcom",
-      "release_date": "2019-01-25",
-      "metacritic_score": 91,
-      "genre": "Хоррор, Выживание",
-      "platform": "PC, PS4, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "RE Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 20,
+      "id": 17,
       "title": "Devil May Cry 5",
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -318,10 +270,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601150/header.jpg?t=1768869803"
     },
     {
-      "id": 21,
+      "id": 18,
       "title": "Street Fighter 6",
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -334,10 +286,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1773812087"
     },
     {
-      "id": 22,
+      "id": 19,
       "title": "Final Fantasy VII Remake",
       "developer": "Square Enix",
       "publisher": "Square Enix",
@@ -350,26 +302,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1462040/header.jpg"
     },
     {
-      "id": 23,
-      "title": "Final Fantasy XIV",
-      "developer": "Square Enix",
-      "publisher": "Square Enix",
-      "release_date": "2013-08-27",
-      "metacritic_score": 83,
-      "genre": "MMORPG",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Мультиплеер, MMO",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 24,
+      "id": 20,
       "title": "Kingdom Hearts III",
       "developer": "Square Enix",
       "publisher": "Square Enix",
@@ -382,10 +318,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552450/header.jpg?t=1726051317"
     },
     {
-      "id": 25,
+      "id": 21,
       "title": "NieR: Automata",
       "developer": "PlatinumGames",
       "publisher": "Square Enix",
@@ -398,10 +334,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/524220/header.jpg?t=1773364834"
     },
     {
-      "id": 26,
+      "id": 22,
       "title": "Persona 5 Royal",
       "developer": "Atlus",
       "publisher": "Sega",
@@ -414,42 +350,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1687950/header.jpg?t=1763530018"
     },
     {
-      "id": 27,
-      "title": "Persona 4 Golden",
-      "developer": "Atlus",
-      "publisher": "Sega",
-      "release_date": "2020-06-13",
-      "metacritic_score": 85,
-      "genre": "RPG",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Atlus Engine",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 28,
-      "title": "Yakuza: Like a Dragon",
-      "developer": "Ryu Ga Gotoku Studio",
-      "publisher": "Sega",
-      "release_date": "2020-11-10",
-      "metacritic_score": 83,
-      "genre": "RPG",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Dragon Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 29,
+      "id": 23,
       "title": "Like a Dragon: Infinite Wealth",
       "developer": "Ryu Ga Gotoku Studio",
       "publisher": "Sega",
@@ -462,10 +366,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2072450/header.jpg?t=1763646953"
     },
     {
-      "id": 30,
+      "id": 24,
       "title": "Ghost of Tsushima",
       "developer": "Sucker Punch Productions",
       "publisher": "Sony Interactive Entertainment",
@@ -478,10 +382,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2215430/header.jpg?t=1763409398"
     },
     {
-      "id": 31,
+      "id": 25,
       "title": "Spider-Man Remastered",
       "developer": "Insomniac Games",
       "publisher": "Sony Interactive Entertainment",
@@ -494,26 +398,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1817070/header.jpg?t=1763569047"
     },
     {
-      "id": 32,
-      "title": "Spider-Man: Miles Morales",
-      "developer": "Insomniac Games",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2022-11-18",
-      "metacritic_score": 84,
-      "genre": "Action, Adventure",
-      "platform": "PC, PS4, PS5",
-      "game_modes": "Одиночная",
-      "engine": "Insomniac Engine",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 33,
+      "id": 26,
       "title": "Ratchet & Clank: Rift Apart",
       "developer": "Insomniac Games",
       "publisher": "Sony Interactive Entertainment",
@@ -526,26 +414,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1896780/header.jpg"
     },
     {
-      "id": 34,
-      "title": "Horizon Zero Dawn",
-      "developer": "Guerrilla Games",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2020-08-07",
-      "metacritic_score": 84,
-      "genre": "Action, RPG",
-      "platform": "PC, PS4, PS5",
-      "game_modes": "Одиночная",
-      "engine": "Decima",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 35,
+      "id": 27,
       "title": "Horizon Forbidden West",
       "developer": "Guerrilla Games",
       "publisher": "Sony Interactive Entertainment",
@@ -558,10 +430,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2420110/header.jpg?t=1763576690"
     },
     {
-      "id": 36,
+      "id": 28,
       "title": "Death Stranding",
       "developer": "Kojima Productions",
       "publisher": "505 Games",
@@ -574,26 +446,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1773400635"
     },
     {
-      "id": 37,
-      "title": "Death Stranding 2",
-      "developer": "Kojima Productions",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2025-06-26",
-      "metacritic_score": 85,
-      "genre": "Action",
-      "platform": "PS5",
-      "game_modes": "Одиночная",
-      "engine": "Decima",
-      "russian_language": false,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 38,
+      "id": 29,
       "title": "Metal Gear Solid V",
       "developer": "Kojima Productions",
       "publisher": "Konami",
@@ -606,10 +462,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/287700/header.jpg?t=1727849445"
     },
     {
-      "id": 39,
+      "id": 30,
       "title": "Silent Hill 2",
       "developer": "Bloober Team",
       "publisher": "Konami",
@@ -622,90 +478,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg"
     },
     {
-      "id": 40,
-      "title": "Alan Wake 2",
-      "developer": "Remedy Entertainment",
-      "publisher": "Epic Games",
-      "release_date": "2023-10-27",
-      "metacritic_score": 89,
-      "genre": "Хоррор",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Northlight Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 41,
-      "title": "Control",
-      "developer": "Remedy Entertainment",
-      "publisher": "505 Games",
-      "release_date": "2019-08-27",
-      "metacritic_score": 85,
-      "genre": "Action, Adventure",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Northlight Engine",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 42,
-      "title": "Max Payne 3",
-      "developer": "Remedy Entertainment",
-      "publisher": "Rockstar Games",
-      "release_date": "2012-05-15",
-      "metacritic_score": 87,
-      "genre": "Шутер, Action",
-      "platform": "PC, PS3, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "RAGE",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 43,
-      "title": "Quantum Break",
-      "developer": "Remedy Entertainment",
-      "publisher": "Microsoft Studios",
-      "release_date": "2016-09-29",
-      "metacritic_score": 77,
-      "genre": "Action, Adventure",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Northlight Engine",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 44,
-      "title": "Deathloop",
-      "developer": "Arkane Studios",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2021-09-14",
-      "metacritic_score": 88,
-      "genre": "Шутер, Action",
-      "platform": "PC, PS5",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 45,
+      "id": 31,
       "title": "Dishonored 2",
       "developer": "Arkane Studios",
       "publisher": "Bethesda Softworks",
@@ -718,10 +494,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/header.jpg?t=1750785918"
     },
     {
-      "id": 46,
+      "id": 32,
       "title": "Prey",
       "developer": "Arkane Studios",
       "publisher": "Bethesda Softworks",
@@ -734,10 +510,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/header.jpg?t=1750785331"
     },
     {
-      "id": 47,
+      "id": 33,
       "title": "Doom Eternal",
       "developer": "id Software",
       "publisher": "Bethesda Softworks",
@@ -750,26 +526,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/782330/header.jpg"
     },
     {
-      "id": 48,
-      "title": "Doom (2016)",
-      "developer": "id Software",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2016-05-13",
-      "metacritic_score": 85,
-      "genre": "Шутер",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "id Tech 6",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 49,
+      "id": 34,
       "title": "Wolfenstein II: The New Colossus",
       "developer": "MachineGames",
       "publisher": "Bethesda Softworks",
@@ -782,10 +542,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/612880/header.jpg"
     },
     {
-      "id": 50,
+      "id": 35,
       "title": "Hi-Fi Rush",
       "developer": "Tango Gameworks",
       "publisher": "Bethesda Softworks",
@@ -798,42 +558,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1817230/header.jpg?t=1764916407"
     },
     {
-      "id": 51,
-      "title": "The Evil Within 2",
-      "developer": "Tango Gameworks",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2017-10-13",
-      "metacritic_score": 80,
-      "genre": "Хоррор, Выживание",
-      "platform": "PC, PS4, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 3",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 52,
-      "title": "Ghostwire: Tokyo",
-      "developer": "Tango Gameworks",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2022-03-25",
-      "metacritic_score": 76,
-      "genre": "Action, Хоррор",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 53,
+      "id": 36,
       "title": "Starfield",
       "developer": "Bethesda Game Studios",
       "publisher": "Bethesda Softworks",
@@ -846,10 +574,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg"
     },
     {
-      "id": 54,
+      "id": 37,
       "title": "Fallout 4",
       "developer": "Bethesda Game Studios",
       "publisher": "Bethesda Softworks",
@@ -862,42 +590,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377160/header.jpg?t=1764687456"
     },
     {
-      "id": 55,
-      "title": "Fallout: New Vegas",
-      "developer": "Obsidian Entertainment",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2010-10-19",
-      "metacritic_score": 84,
-      "genre": "RPG",
-      "platform": "PC, PS3, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Gamebryo",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 56,
-      "title": "The Outer Worlds",
-      "developer": "Obsidian Entertainment",
-      "publisher": "Private Division",
-      "release_date": "2019-10-25",
-      "metacritic_score": 85,
-      "genre": "RPG",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 57,
+      "id": 38,
       "title": "Grounded",
       "developer": "Obsidian Entertainment",
       "publisher": "Xbox Game Studios",
@@ -910,42 +606,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/962130/header.jpg?t=1768264530"
     },
     {
-      "id": 58,
-      "title": "Pentiment",
-      "developer": "Obsidian Entertainment",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2022-11-15",
-      "metacritic_score": 82,
-      "genre": "RPG, Adventure",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 59,
-      "title": "Avowed",
-      "developer": "Obsidian Entertainment",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2025-02-18",
-      "metacritic_score": 80,
-      "genre": "RPG",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 5",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 60,
+      "id": 39,
       "title": "Baldurs Gate 3",
       "developer": "Larian Studios",
       "publisher": "Larian Studios",
@@ -958,10 +622,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1773079016"
     },
     {
-      "id": 61,
+      "id": 40,
       "title": "Divinity: Original Sin 2",
       "developer": "Larian Studios",
       "publisher": "Larian Studios",
@@ -974,10 +638,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/435150/3f6ee788cb01bd65097c52399d536eb424b4876f/header.jpg?t=1765811123"
     },
     {
-      "id": 62,
+      "id": 41,
       "title": "Solasta: Crown of the Magister",
       "developer": "Tactical Adventures",
       "publisher": "Tactical Adventures",
@@ -990,10 +654,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1096530/header.jpg?t=1772029038"
     },
     {
-      "id": 63,
+      "id": 42,
       "title": "Pathfinder: Wrath of the Righteous",
       "developer": "Owlcat Games",
       "publisher": "META Publishing",
@@ -1006,26 +670,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1184370/header.jpg?t=1764938127"
     },
     {
-      "id": 64,
-      "title": "Pathfinder: Kingmaker",
-      "developer": "Owlcat Games",
-      "publisher": "Deep Silver",
-      "release_date": "2018-09-25",
-      "metacritic_score": 75,
-      "genre": "RPG",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 65,
+      "id": 43,
       "title": "Wasteland 3",
       "developer": "inXile Entertainment",
       "publisher": "Deep Silver",
@@ -1038,10 +686,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/719040/header.jpg?t=1763578952"
     },
     {
-      "id": 66,
+      "id": 44,
       "title": "Torment: Tides of Numenera",
       "developer": "Ninja Theory",
       "publisher": "Techland Publishing",
@@ -1054,26 +702,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/header.jpg"
     },
     {
-      "id": 67,
-      "title": "Disco Elysium",
-      "developer": "ZA/UM",
-      "publisher": "ZA/UM",
-      "release_date": "2019-10-15",
-      "metacritic_score": 91,
-      "genre": "RPG",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 68,
+      "id": 45,
       "title": "Pillars of Eternity II",
       "developer": "Obsidian Entertainment",
       "publisher": "Versus Evil",
@@ -1086,10 +718,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/560130/header.jpg"
     },
     {
-      "id": 69,
+      "id": 46,
       "title": "Tyranny",
       "developer": "Obsidian Entertainment",
       "publisher": "Paradox Interactive",
@@ -1102,26 +734,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/362960/header.jpg?t=1710236901"
     },
     {
-      "id": 70,
-      "title": "South Park: The Stick of Truth",
-      "developer": "Obsidian Entertainment",
-      "publisher": "Ubisoft",
-      "release_date": "2014-03-04",
-      "metacritic_score": 85,
-      "genre": "RPG",
-      "platform": "PC, PS3, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 71,
+      "id": 47,
       "title": "South Park: The Fractured But Whole",
       "developer": "Ubisoft San Francisco",
       "publisher": "Ubisoft",
@@ -1134,10 +750,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/488790/header.jpg?t=1765228312"
     },
     {
-      "id": 72,
+      "id": 48,
       "title": "Assassins Creed Valhalla",
       "developer": "Ubisoft Montreal",
       "publisher": "Ubisoft",
@@ -1150,74 +766,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2208920/header.jpg?t=1754572990"
     },
     {
-      "id": 73,
-      "title": "Assassins Creed Odyssey",
-      "developer": "Ubisoft Quebec",
-      "publisher": "Ubisoft",
-      "release_date": "2018-10-05",
-      "metacritic_score": 83,
-      "genre": "Action, RPG",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "AnvilNext 2.0",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 74,
-      "title": "Assassins Creed Origins",
-      "developer": "Ubisoft Montreal",
-      "publisher": "Ubisoft",
-      "release_date": "2017-10-27",
-      "metacritic_score": 81,
-      "genre": "Action, RPG",
-      "platform": "PC, PS4, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "AnvilNext 2.0",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 75,
-      "title": "Far Cry 6",
-      "developer": "Ubisoft Toronto",
-      "publisher": "Ubisoft",
-      "release_date": "2021-10-07",
-      "metacritic_score": 73,
-      "genre": "Шутер, Action",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Dunia",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 76,
-      "title": "Far Cry 5",
-      "developer": "Ubisoft Montreal",
-      "publisher": "Ubisoft",
-      "release_date": "2018-03-27",
-      "metacritic_score": 81,
-      "genre": "Шутер, Action",
-      "platform": "PC, PS4, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Dunia",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 77,
+      "id": 49,
       "title": "Watch Dogs: Legion",
       "developer": "Ubisoft Toronto",
       "publisher": "Ubisoft",
@@ -1230,10 +782,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2239550/header.jpg"
     },
     {
-      "id": 78,
+      "id": 50,
       "title": "Rainbow Six Siege",
       "developer": "Ubisoft Montreal",
       "publisher": "Ubisoft",
@@ -1246,10 +798,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg"
     },
     {
-      "id": 79,
+      "id": 51,
       "title": "Prince of Persia: The Lost Crown",
       "developer": "Ubisoft Montpellier",
       "publisher": "Ubisoft",
@@ -1262,26 +814,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2751000/header.jpg?t=1736259456"
     },
     {
-      "id": 80,
-      "title": "Immortals Fenyx Rising",
-      "developer": "Ubisoft Quebec",
-      "publisher": "Ubisoft",
-      "release_date": "2020-12-03",
-      "metacritic_score": 77,
-      "genre": "Action, Adventure",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "AnvilNext 2.0",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 81,
+      "id": 52,
       "title": "Forza Horizon 5",
       "developer": "Playground Games",
       "publisher": "Xbox Game Studios",
@@ -1294,42 +830,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508"
     },
     {
-      "id": 82,
-      "title": "Forza Motorsport",
-      "developer": "Turn 10 Studios",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2023-10-10",
-      "metacritic_score": 84,
-      "genre": "Гонки",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "ForzaTech",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 83,
-      "title": "Halo Infinite",
-      "developer": "343 Industries",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2021-12-08",
-      "metacritic_score": 87,
-      "genre": "Шутер",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Slipspace Engine",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 84,
+      "id": 53,
       "title": "Gears 5",
       "developer": "The Coalition",
       "publisher": "Xbox Game Studios",
@@ -1342,42 +846,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1097840/header.jpg?t=1684425784"
     },
     {
-      "id": 85,
-      "title": "Sea of Thieves",
-      "developer": "Rare",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2018-03-20",
-      "metacritic_score": 69,
-      "genre": "Action, Adventure",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 86,
-      "title": "State of Decay 2",
-      "developer": "Undead Labs",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2018-05-22",
-      "metacritic_score": 64,
-      "genre": "Выживание, Хоррор",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 3",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 87,
+      "id": 54,
       "title": "Microsoft Flight Simulator",
       "developer": "Asobo Studio",
       "publisher": "Xbox Game Studios",
@@ -1390,10 +862,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg"
     },
     {
-      "id": 88,
+      "id": 55,
       "title": "Age of Empires IV",
       "developer": "Relic Entertainment",
       "publisher": "Xbox Game Studios",
@@ -1406,26 +878,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1466860/header.jpg"
     },
     {
-      "id": 89,
-      "title": "Starcraft II",
-      "developer": "Blizzard Entertainment",
-      "publisher": "Blizzard Entertainment",
-      "release_date": "2010-07-27",
-      "metacritic_score": 93,
-      "genre": "Стратегия",
-      "platform": "PC",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Galaxy Engine",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 90,
+      "id": 56,
       "title": "Diablo IV",
       "developer": "Blizzard Entertainment",
       "publisher": "Blizzard Entertainment",
@@ -1438,42 +894,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2344520/8474e0475ea726bdb9aa1c55a5bc599ba0c214e0/header_alt_assets_10.jpg?t=1775778391"
     },
     {
-      "id": 91,
-      "title": "Diablo II: Resurrected",
-      "developer": "Vicarious Visions",
-      "publisher": "Blizzard Entertainment",
-      "release_date": "2021-09-23",
-      "metacritic_score": 80,
-      "genre": "Action, RPG",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 92,
-      "title": "Diablo III",
-      "developer": "Blizzard Entertainment",
-      "publisher": "Blizzard Entertainment",
-      "release_date": "2012-05-15",
-      "metacritic_score": 88,
-      "genre": "Action, RPG",
-      "platform": "PC, PS3, PS4, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 93,
+      "id": 57,
       "title": "Overwatch 2",
       "developer": "Blizzard Entertainment",
       "publisher": "Blizzard Entertainment",
@@ -1486,42 +910,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg"
     },
     {
-      "id": 94,
-      "title": "World of Warcraft",
-      "developer": "Blizzard Entertainment",
-      "publisher": "Blizzard Entertainment",
-      "release_date": "2004-11-23",
-      "metacritic_score": 93,
-      "genre": "MMORPG",
-      "platform": "PC",
-      "game_modes": "Мультиплеер, MMO",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 95,
-      "title": "Hearthstone",
-      "developer": "Blizzard Entertainment",
-      "publisher": "Blizzard Entertainment",
-      "release_date": "2014-03-11",
-      "metacritic_score": 88,
-      "genre": "Карточная",
-      "platform": "PC, Mobile",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 96,
+      "id": 58,
       "title": "Destiny 2",
       "developer": "Bungie",
       "publisher": "Bungie",
@@ -1534,42 +926,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1085660/header.jpg?t=1765904462"
     },
     {
-      "id": 97,
-      "title": "Marathon",
-      "developer": "Bungie",
-      "publisher": "Bungie",
-      "release_date": "2025-07-22",
-      "metacritic_score": 80,
-      "genre": "Шутер",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Мультиплеер",
-      "engine": "Custom",
-      "russian_language": false,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 98,
-      "title": "Hades",
-      "developer": "Supergiant Games",
-      "publisher": "Supergiant Games",
-      "release_date": "2020-09-17",
-      "metacritic_score": 93,
-      "genre": "Roguelike, Action",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 99,
+      "id": 59,
       "title": "Hades II",
       "developer": "Supergiant Games",
       "publisher": "Supergiant Games",
@@ -1582,10 +942,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/91ac334a2c137d08968ccc0bc474a02579602100/header.jpg?t=1765831644"
     },
     {
-      "id": 100,
+      "id": 60,
       "title": "Bastion",
       "developer": "Supergiant Games",
       "publisher": "Supergiant Games",
@@ -1598,10 +958,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/107100/header.jpg?t=1729113932"
     },
     {
-      "id": 101,
+      "id": 61,
       "title": "Transistor",
       "developer": "Supergiant Games",
       "publisher": "Supergiant Games",
@@ -1614,10 +974,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/237930/header.jpg?t=1729113992"
     },
     {
-      "id": 102,
+      "id": 62,
       "title": "Pyre",
       "developer": "Supergiant Games",
       "publisher": "Supergiant Games",
@@ -1630,42 +990,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/462770/header.jpg?t=1729114062"
     },
     {
-      "id": 103,
-      "title": "Dead Cells",
-      "developer": "Motion Twin",
-      "publisher": "Motion Twin",
-      "release_date": "2018-08-07",
-      "metacritic_score": 89,
-      "genre": "Roguelike, Action",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 104,
-      "title": "Returnal",
-      "developer": "Housemarque",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2023-02-15",
-      "metacritic_score": 86,
-      "genre": "Roguelike, Шутер",
-      "platform": "PC, PS5",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 105,
+      "id": 63,
       "title": "Risk of Rain 2",
       "developer": "Hopoo Games",
       "publisher": "Gearbox Publishing",
@@ -1678,10 +1006,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1775753930"
     },
     {
-      "id": 106,
+      "id": 64,
       "title": "Slay the Spire",
       "developer": "MegaCrit",
       "publisher": "Humble Games",
@@ -1694,10 +1022,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1774015376"
     },
     {
-      "id": 107,
+      "id": 65,
       "title": "Cuphead",
       "developer": "Studio MDHR",
       "publisher": "Studio MDHR",
@@ -1710,10 +1038,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268910/header.jpg?t=1709068852"
     },
     {
-      "id": 108,
+      "id": 66,
       "title": "Hollow Knight",
       "developer": "Team Cherry",
       "publisher": "Team Cherry",
@@ -1726,26 +1054,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/3c3489495136b26b34f8a9543c7f5645b99d388c/header.jpg?t=1770338567"
     },
     {
-      "id": 109,
-      "title": "Silksong",
-      "developer": "Team Cherry",
-      "publisher": "Team Cherry",
-      "release_date": "2025-06-19",
-      "metacritic_score": 85,
-      "genre": "Metroidvania, Platformer",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 110,
+      "id": 67,
       "title": "Ori and the Will of the Wisps",
       "developer": "Moon Studios",
       "publisher": "Xbox Game Studios",
@@ -1758,26 +1070,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1057090/header.jpg"
     },
     {
-      "id": 111,
-      "title": "Ori and the Blind Forest",
-      "developer": "Moon Studios",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2015-03-11",
-      "metacritic_score": 88,
-      "genre": "Metroidvania, Platformer",
-      "platform": "PC, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 112,
+      "id": 68,
       "title": "Celeste",
       "developer": "Maddy Makes Games",
       "publisher": "Maddy Makes Games",
@@ -1790,10 +1086,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/header.jpg?t=1714089525"
     },
     {
-      "id": 113,
+      "id": 69,
       "title": "Super Meat Boy",
       "developer": "Team Meat",
       "publisher": "Team Meat",
@@ -1806,26 +1102,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40800/header.jpg?t=1700669950"
     },
     {
-      "id": 114,
-      "title": "Super Meat Boy Forever",
-      "developer": "Team Meat",
-      "publisher": "Team Meat",
-      "release_date": "2020-12-10",
-      "metacritic_score": 65,
-      "genre": "Platformer",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Кооператив",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 115,
+      "id": 70,
       "title": "The Binding of Isaac: Rebirth",
       "developer": "Nicalis",
       "publisher": "Nicalis",
@@ -1838,10 +1118,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365"
     },
     {
-      "id": 116,
+      "id": 71,
       "title": "Enter the Gungeon",
       "developer": "Dodge Roll",
       "publisher": "Devolver Digital",
@@ -1854,10 +1134,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311690/header.jpg?t=1743602589"
     },
     {
-      "id": 117,
+      "id": 72,
       "title": "Gunfire Reborn",
       "developer": "Duoyi Games",
       "publisher": "Duoyi Games",
@@ -1870,10 +1150,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1217060/dd6c1906d262c38c183ccd711f192db187b5103f/header.jpg?t=1772604809"
     },
     {
-      "id": 118,
+      "id": 73,
       "title": "Vampire Survivors",
       "developer": "poncle",
       "publisher": "poncle",
@@ -1886,10 +1166,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1794680/header.jpg?t=1763675244"
     },
     {
-      "id": 119,
+      "id": 74,
       "title": "Terraria",
       "developer": "Re-Logic",
       "publisher": "Re-Logic",
@@ -1902,26 +1182,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1769844435"
     },
     {
-      "id": 120,
-      "title": "Stardew Valley",
-      "developer": "ConcernedApe",
-      "publisher": "ConcernedApe",
-      "release_date": "2016-02-26",
-      "metacritic_score": 89,
-      "genre": "Симулятор фермы, RPG",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 121,
+      "id": 75,
       "title": "Valheim",
       "developer": "Iron Gate AB",
       "publisher": "Coffee Stain Publishing",
@@ -1934,10 +1198,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/de0bdcf6c008c508a79d8e75eb91fc67f4bebd5d/header.jpg?t=1765967243"
     },
     {
-      "id": 122,
+      "id": 76,
       "title": "Rust",
       "developer": "Facepunch Studios",
       "publisher": "Facepunch Studios",
@@ -1950,10 +1214,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1775904214"
     },
     {
-      "id": 123,
+      "id": 77,
       "title": "ARK: Survival Evolved",
       "developer": "Studio Wildcard",
       "publisher": "Studio Wildcard",
@@ -1966,42 +1230,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/346110/header.jpg?t=1765677889"
     },
     {
-      "id": 124,
-      "title": "Conan Exiles",
-      "developer": "Funcom",
-      "publisher": "Funcom",
-      "release_date": "2018-05-08",
-      "metacritic_score": 70,
-      "genre": "Выживание",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 125,
-      "title": "The Forest",
-      "developer": "Endnight Games",
-      "publisher": "Endnight Games",
-      "release_date": "2018-04-30",
-      "metacritic_score": 83,
-      "genre": "Выживание, Хоррор",
-      "platform": "PC, PS4",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 126,
+      "id": 78,
       "title": "Sons of the Forest",
       "developer": "Endnight Games",
       "publisher": "Endnight Games",
@@ -2014,42 +1246,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1326470/header.jpg?t=1708624856"
     },
     {
-      "id": 127,
-      "title": "Green Hell",
-      "developer": "Creepy Jar",
-      "publisher": "Creepy Jar",
-      "release_date": "2019-09-05",
-      "metacritic_score": 78,
-      "genre": "Выживание",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 128,
-      "title": "Subnautica",
-      "developer": "Unknown Worlds",
-      "publisher": "Unknown Worlds",
-      "release_date": "2018-01-23",
-      "metacritic_score": 87,
-      "genre": "Выживание",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 129,
+      "id": 79,
       "title": "Subnautica: Below Zero",
       "developer": "Unknown Worlds",
       "publisher": "Unknown Worlds",
@@ -2062,10 +1262,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header.jpg?t=1774343326"
     },
     {
-      "id": 130,
+      "id": 80,
       "title": "No Mans Sky",
       "developer": "Hello Games",
       "publisher": "Hello Games",
@@ -2078,10 +1278,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/0daeafb115c92d9afd4c7a670384688adbde91e0/header_alt_assets_25.jpg?t=1775653502"
     },
     {
-      "id": 131,
+      "id": 81,
       "title": "Elite Dangerous",
       "developer": "Frontier Developments",
       "publisher": "Frontier Developments",
@@ -2094,10 +1294,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359320/header.jpg"
     },
     {
-      "id": 132,
+      "id": 82,
       "title": "Kerbal Space Program",
       "developer": "Squad",
       "publisher": "Private Division",
@@ -2110,26 +1310,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header.jpg?t=1738037585"
     },
     {
-      "id": 133,
-      "title": "Cities: Skylines",
-      "developer": "Colossal Order",
-      "publisher": "Paradox Interactive",
-      "release_date": "2015-03-10",
-      "metacritic_score": 85,
-      "genre": "Градостроительный симулятор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 134,
+      "id": 83,
       "title": "Cities: Skylines II",
       "developer": "Colossal Order",
       "publisher": "Paradox Interactive",
@@ -2142,10 +1326,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/header.jpg?t=1773949108"
     },
     {
-      "id": 135,
+      "id": 84,
       "title": "Planet Coaster",
       "developer": "Frontier Developments",
       "publisher": "Frontier Developments",
@@ -2158,26 +1342,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2688950/header.jpg?t=1770120190"
     },
     {
-      "id": 136,
-      "title": "Planet Zoo",
-      "developer": "Frontier Developments",
-      "publisher": "Frontier Developments",
-      "release_date": "2019-11-05",
-      "metacritic_score": 83,
-      "genre": "Симулятор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 137,
+      "id": 85,
       "title": "Jurassic World Evolution 2",
       "developer": "Frontier Developments",
       "publisher": "Frontier Developments",
@@ -2190,26 +1358,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244460/header.jpg?t=1750957701"
     },
     {
-      "id": 138,
-      "title": "Two Point Hospital",
-      "developer": "Two Point Studios",
-      "publisher": "Sega",
-      "release_date": "2018-08-30",
-      "metacritic_score": 83,
-      "genre": "Симулятор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 139,
+      "id": 86,
       "title": "Two Point Campus",
       "developer": "Two Point Studios",
       "publisher": "Sega",
@@ -2222,10 +1374,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1649080/header.jpg?t=1763646611"
     },
     {
-      "id": 140,
+      "id": 87,
       "title": "RimWorld",
       "developer": "Ludeon Studios",
       "publisher": "Ludeon Studios",
@@ -2238,10 +1390,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/header.jpg?t=1775156257"
     },
     {
-      "id": 141,
+      "id": 88,
       "title": "Factorio",
       "developer": "Wube Software",
       "publisher": "Wube Software",
@@ -2254,10 +1406,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/header.jpg?t=1763986204"
     },
     {
-      "id": 142,
+      "id": 89,
       "title": "Satisfactory",
       "developer": "Coffee Stain Studios",
       "publisher": "Coffee Stain Publishing",
@@ -2270,10 +1422,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg?t=1749717464"
     },
     {
-      "id": 143,
+      "id": 90,
       "title": "Dyson Sphere Program",
       "developer": "Youthcat Studio",
       "publisher": "Gamera Game",
@@ -2286,10 +1438,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/2521472f3f71b6f179515fdcfa33d27c212ba3ce/header.jpg?t=1775816915"
     },
     {
-      "id": 144,
+      "id": 91,
       "title": "Oxygen Not Included",
       "developer": "Klei Entertainment",
       "publisher": "Klei Entertainment",
@@ -2302,10 +1454,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/header.jpg?t=1772559127"
     },
     {
-      "id": 145,
+      "id": 92,
       "title": "Dont Starve Together",
       "developer": "Klei Entertainment",
       "publisher": "Klei Entertainment",
@@ -2318,42 +1470,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/51e5f44e4e38ce02a985687df4fdc8feb678219b/header.jpg?t=1775799180"
     },
     {
-      "id": 146,
-      "title": "Dont Starve",
-      "developer": "Klei Entertainment",
-      "publisher": "Klei Entertainment",
-      "release_date": "2013-04-23",
-      "metacritic_score": 79,
-      "genre": "Выживание",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 147,
-      "title": "Mark of the Ninja",
-      "developer": "Klei Entertainment",
-      "publisher": "Klei Entertainment",
-      "release_date": "2012-09-07",
-      "metacritic_score": 84,
-      "genre": "Stealth, Platformer",
-      "platform": "PC, PS4, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 148,
+      "id": 93,
       "title": "Invisible Inc",
       "developer": "Klei Entertainment",
       "publisher": "Klei Entertainment",
@@ -2366,10 +1486,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/header.jpg?t=1775510624"
     },
     {
-      "id": 149,
+      "id": 94,
       "title": "Griftlands",
       "developer": "Klei Entertainment",
       "publisher": "Klei Entertainment",
@@ -2382,10 +1502,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601840/header.jpg?t=1772564680"
     },
     {
-      "id": 150,
+      "id": 95,
       "title": "Among Us",
       "developer": "Innersloth",
       "publisher": "Innersloth",
@@ -2398,26 +1518,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/header.jpg?t=1757444903"
     },
     {
-      "id": 151,
-      "title": "Fall Guys",
-      "developer": "Mediatonic",
-      "publisher": "Epic Games",
-      "release_date": "2020-08-04",
-      "metacritic_score": 81,
-      "genre": "Party, Platformer",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Мультиплеер",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 152,
+      "id": 96,
       "title": "Rocket League",
       "developer": "Psyonix",
       "publisher": "Psyonix",
@@ -2430,26 +1534,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252950/header.jpg"
     },
     {
-      "id": 153,
-      "title": "FIFA 23",
-      "developer": "EA Vancouver",
-      "publisher": "Electronic Arts",
-      "release_date": "2022-09-30",
-      "metacritic_score": 77,
-      "genre": "Спорт",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Frostbite",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 154,
+      "id": 97,
       "title": "EA Sports FC 24",
       "developer": "EA Vancouver",
       "publisher": "Electronic Arts",
@@ -2462,26 +1550,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2195250/header.jpg"
     },
     {
-      "id": 155,
-      "title": "NBA 2K24",
-      "developer": "Visual Concepts",
-      "publisher": "2K Sports",
-      "release_date": "2023-09-08",
-      "metacritic_score": 73,
-      "genre": "Спорт",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 156,
+      "id": 98,
       "title": "F1 23",
       "developer": "Codemasters",
       "publisher": "EA Sports",
@@ -2494,10 +1566,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2426210/header.jpg?t=1727977870"
     },
     {
-      "id": 157,
+      "id": 99,
       "title": "Dirt Rally 2.0",
       "developer": "Codemasters",
       "publisher": "Codemasters",
@@ -2510,42 +1582,10 @@
       "russian_language": true,
       "age_rating": 6,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/690790/header.jpg?t=1775754004"
     },
     {
-      "id": 158,
-      "title": "Grid Legends",
-      "developer": "Codemasters",
-      "publisher": "EA Sports",
-      "release_date": "2022-02-25",
-      "metacritic_score": 77,
-      "genre": "Гонки",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "EGO",
-      "russian_language": true,
-      "age_rating": 6,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 159,
-      "title": "Need for Speed Unbound",
-      "developer": "Criterion Games",
-      "publisher": "Electronic Arts",
-      "release_date": "2022-12-02",
-      "metacritic_score": 79,
-      "genre": "Гонки",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Ghost",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 160,
+      "id": 100,
       "title": "Burnout Paradise",
       "developer": "Criterion Games",
       "publisher": "Electronic Arts",
@@ -2558,10 +1598,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg?t=1625518920"
     },
     {
-      "id": 161,
+      "id": 101,
       "title": "It Takes Two",
       "developer": "Hazelight Studios",
       "publisher": "Electronic Arts",
@@ -2574,10 +1614,10 @@
       "russian_language": true,
       "age_rating": 12,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/header.jpg?t=1763484491"
     },
     {
-      "id": 162,
+      "id": 102,
       "title": "A Way Out",
       "developer": "Hazelight Studios",
       "publisher": "Electronic Arts",
@@ -2590,26 +1630,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222700/header.jpg?t=1730912036"
     },
     {
-      "id": 163,
-      "title": "Stray",
-      "developer": "BlueTwelve Studio",
-      "publisher": "Annapurna Interactive",
-      "release_date": "2022-07-19",
-      "metacritic_score": 83,
-      "genre": "Adventure",
-      "platform": "PC, PS4, PS5",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 164,
+      "id": 103,
       "title": "Firewatch",
       "developer": "Campo Santo",
       "publisher": "Campo Santo",
@@ -2622,10 +1646,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/383870/41a7d0ff4c2dab4ed69c53c9a29c931e6f62948d/header.jpg?t=1755789801"
     },
     {
-      "id": 165,
+      "id": 104,
       "title": "What Remains of Edith Finch",
       "developer": "Giant Sparrow",
       "publisher": "Annapurna Interactive",
@@ -2638,58 +1662,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/501300/header.jpg?t=1751995813"
     },
     {
-      "id": 166,
-      "title": "The Stanley Parable",
-      "developer": "Galactic Cafe",
-      "publisher": "Galactic Cafe",
-      "release_date": "2013-10-17",
-      "metacritic_score": 88,
-      "genre": "Adventure",
-      "platform": "PC",
-      "game_modes": "Одиночная",
-      "engine": "Source",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 167,
-      "title": "The Stanley Parable: Ultra Deluxe",
-      "developer": "Galactic Cafe",
-      "publisher": "Galactic Cafe",
-      "release_date": "2022-04-27",
-      "metacritic_score": 85,
-      "genre": "Adventure",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 168,
-      "title": "Life is Strange",
-      "developer": "Dontnod Entertainment",
-      "publisher": "Square Enix",
-      "release_date": "2015-01-30",
-      "metacritic_score": 83,
-      "genre": "Adventure",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 3",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 169,
+      "id": 105,
       "title": "Life is Strange: True Colors",
       "developer": "Deck Nine",
       "publisher": "Square Enix",
@@ -2702,26 +1678,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/936790/header.jpg?t=1771867255"
     },
     {
-      "id": 170,
-      "title": "Tell Me Why",
-      "developer": "Dontnod Entertainment",
-      "publisher": "Xbox Game Studios",
-      "release_date": "2020-08-27",
-      "metacritic_score": 75,
-      "genre": "Adventure",
-      "platform": "PC, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 171,
+      "id": 106,
       "title": "Oxenfree",
       "developer": "Night School Studio",
       "publisher": "Night School Studio",
@@ -2734,10 +1694,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1574310/header.jpg?t=1736904406"
     },
     {
-      "id": 172,
+      "id": 107,
       "title": "Night in the Woods",
       "developer": "Infinite Fall",
       "publisher": "Finji",
@@ -2750,10 +1710,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/481510/header.jpg?t=1706292417"
     },
     {
-      "id": 173,
+      "id": 108,
       "title": "Gone Home",
       "developer": "The Fullbright Company",
       "publisher": "The Fullbright Company",
@@ -2766,74 +1726,10 @@
       "russian_language": true,
       "age_rating": 16,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/232430/header.jpg?t=1756162182"
     },
     {
-      "id": 174,
-      "title": "Dear Esther",
-      "developer": "The Chinese Room",
-      "publisher": "The Chinese Room",
-      "release_date": "2012-02-14",
-      "metacritic_score": 77,
-      "genre": "Adventure",
-      "platform": "PC",
-      "game_modes": "Одиночная",
-      "engine": "Source",
-      "russian_language": true,
-      "age_rating": 16,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 175,
-      "title": "Everybody Gone to the Rapture",
-      "developer": "The Chinese Room",
-      "publisher": "Sony Interactive Entertainment",
-      "release_date": "2015-08-11",
-      "metacritic_score": 71,
-      "genre": "Adventure",
-      "platform": "PC, PS4",
-      "game_modes": "Одиночная",
-      "engine": "Custom",
-      "russian_language": true,
-      "age_rating": 12,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 176,
-      "title": "Amnesia: The Dark Descent",
-      "developer": "Frictional Games",
-      "publisher": "Frictional Games",
-      "release_date": "2010-09-08",
-      "metacritic_score": 85,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "HPL Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 177,
-      "title": "Amnesia: Rebirth",
-      "developer": "Frictional Games",
-      "publisher": "Frictional Games",
-      "release_date": "2020-10-20",
-      "metacritic_score": 78,
-      "genre": "Хоррор",
-      "platform": "PC, PS4",
-      "game_modes": "Одиночная",
-      "engine": "HPL Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 178,
+      "id": 109,
       "title": "Amnesia: The Bunker",
       "developer": "Frictional Games",
       "publisher": "Frictional Games",
@@ -2846,10 +1742,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1944430/header.jpg?t=1773329066"
     },
     {
-      "id": 179,
+      "id": 110,
       "title": "SOMA",
       "developer": "Frictional Games",
       "publisher": "Frictional Games",
@@ -2862,138 +1758,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/282140/header.jpg?t=1773329055"
     },
     {
-      "id": 180,
-      "title": "Outlast",
-      "developer": "Red Barrels",
-      "publisher": "Red Barrels",
-      "release_date": "2013-09-04",
-      "metacritic_score": 80,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 3",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 181,
-      "title": "Outlast II",
-      "developer": "Red Barrels",
-      "publisher": "Red Barrels",
-      "release_date": "2017-04-25",
-      "metacritic_score": 77,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 182,
-      "title": "The Outlast Trials",
-      "developer": "Red Barrels",
-      "publisher": "Red Barrels",
-      "release_date": "2024-03-05",
-      "metacritic_score": 78,
-      "genre": "Хоррор",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 183,
-      "title": "Layers of Fear",
-      "developer": "Bloober Team",
-      "publisher": "Bloober Team",
-      "release_date": "2016-02-16",
-      "metacritic_score": 71,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unity",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 184,
-      "title": "Layers of Fear 2",
-      "developer": "Bloober Team",
-      "publisher": "Bloober Team",
-      "release_date": "2019-06-04",
-      "metacritic_score": 73,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox, Switch",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 185,
-      "title": "The Medium",
-      "developer": "Bloober Team",
-      "publisher": "Bloober Team",
-      "release_date": "2021-01-28",
-      "metacritic_score": 73,
-      "genre": "Хоррор",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Northlight Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 186,
-      "title": "Blair Witch",
-      "developer": "Bloober Team",
-      "publisher": "Bloober Team",
-      "release_date": "2019-08-30",
-      "metacritic_score": 65,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 187,
-      "title": "Observer: System Redux",
-      "developer": "Bloober Team",
-      "publisher": "Bloober Team",
-      "release_date": "2017-08-15",
-      "metacritic_score": 74,
-      "genre": "Хоррор, Cyberpunk",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 188,
+      "id": 111,
       "title": "Visage",
       "developer": "SadSquare Studio",
       "publisher": "SadSquare Studio",
@@ -3006,10 +1774,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/594330/header.jpg?t=1607559678"
     },
     {
-      "id": 189,
+      "id": 112,
       "title": "MADiSON",
       "developer": "BLOODIOUS GAMES",
       "publisher": "BLOODIOUS GAMES",
@@ -3022,74 +1790,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1670870/header.jpg?t=1686276552"
     },
     {
-      "id": 190,
-      "title": "The Callisto Protocol",
-      "developer": "Striking Distance Studios",
-      "publisher": "Krafton",
-      "release_date": "2022-12-02",
-      "metacritic_score": 68,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 191,
-      "title": "Dead Space",
-      "developer": "Motive Studio",
-      "publisher": "Electronic Arts",
-      "release_date": "2023-01-27",
-      "metacritic_score": 89,
-      "genre": "Хоррор",
-      "platform": "PC, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Frostbite",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 192,
-      "title": "Dead Space 2",
-      "developer": "Visceral Games",
-      "publisher": "Electronic Arts",
-      "release_date": "2011-01-25",
-      "metacritic_score": 87,
-      "genre": "Хоррор",
-      "platform": "PC, PS3, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "Vicious Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 193,
-      "title": "Dead Space 3",
-      "developer": "Visceral Games",
-      "publisher": "Electronic Arts",
-      "release_date": "2013-02-05",
-      "metacritic_score": 78,
-      "genre": "Хоррор, Action",
-      "platform": "PC, PS3, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Кооператив",
-      "engine": "Vicious Engine",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 194,
+      "id": 113,
       "title": "Alien: Isolation",
       "developer": "Creative Assembly",
       "publisher": "Sega",
@@ -3102,26 +1806,10 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214490/header.jpg"
     },
     {
-      "id": 195,
-      "title": "The Evil Within",
-      "developer": "Tango Gameworks",
-      "publisher": "Bethesda Softworks",
-      "release_date": "2014-10-14",
-      "metacritic_score": 75,
-      "genre": "Хоррор",
-      "platform": "PC, PS3, PS4, PS5, Xbox",
-      "game_modes": "Одиночная",
-      "engine": "id Tech 5",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 196,
+      "id": 114,
       "title": "Until Dawn",
       "developer": "Supermassive Games",
       "publisher": "Sony Interactive Entertainment",
@@ -3134,71 +1822,7 @@
       "russian_language": true,
       "age_rating": 18,
       "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 197,
-      "title": "The Quarry",
-      "developer": "Supermassive Games",
-      "publisher": "2K Games",
-      "release_date": "2022-06-10",
-      "metacritic_score": 75,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 198,
-      "title": "The Dark Pictures: Man of Medan",
-      "developer": "Supermassive Games",
-      "publisher": "Bandai Namco",
-      "release_date": "2019-08-30",
-      "metacritic_score": 69,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 199,
-      "title": "The Dark Pictures: Little Hope",
-      "developer": "Supermassive Games",
-      "publisher": "Bandai Namco",
-      "release_date": "2020-10-15",
-      "metacritic_score": 68,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
-    },
-    {
-      "id": 200,
-      "title": "The Dark Pictures: House of Ashes",
-      "developer": "Supermassive Games",
-      "publisher": "Bandai Namco",
-      "release_date": "2021-10-26",
-      "metacritic_score": 72,
-      "genre": "Хоррор",
-      "platform": "PC, PS4, PS5, Xbox",
-      "game_modes": "Одиночная, Мультиплеер, Кооператив",
-      "engine": "Unreal Engine 4",
-      "russian_language": true,
-      "age_rating": 18,
-      "executable_path": null,
-      "image_url": null
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2479060/header.jpg"
     }
   ],
   "system_requirements": [
